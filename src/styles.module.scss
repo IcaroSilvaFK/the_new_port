@@ -1,0 +1,327 @@
+@import './styles/_colors.scss';
+@import './styles/_variables.scss';
+
+.container {
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .first__section {
+    padding: 0 1rem;
+
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    max-width: 1250px;
+    margin: 0 auto;
+
+    @media (min-width: 1024px) {
+      align-items: center;
+      justify-content: space-between;
+
+      img {
+        max-width: 450px;
+      }
+    }
+
+    h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+    }
+
+    p {
+      color: $mutedForeground;
+      margin-top: 0.5rem;
+      max-width: 600px;
+      font-size: 1.2rem;
+    }
+
+    div > div {
+      display: flex;
+      gap: 0.5rem;
+      margin-top: 1rem;
+
+      flex-direction: column;
+
+      @media (min-width: 1024px) {
+        flex-direction: row;
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: calc($radius - 2px);
+
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        height: 2.5rem;
+
+        transition: background linear 0.3s;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      a:first-child {
+        color: $primaryForeground;
+        background: $primary;
+
+        &:hover {
+          background: darken($primary, 20%);
+        }
+      }
+
+      a:last-child {
+        background: $background;
+        border: 1px solid $input;
+
+        &:hover {
+          background: transparentize($input, 0.7);
+        }
+      }
+    }
+  }
+
+  .image__section {
+    object-fit: cover;
+    border-radius: calc($radius + 4px);
+    overflow: hidden;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+    height: auto;
+
+    @media (min-width: 1024px) {
+      aspect-ratio: 1/1;
+      margin: 0 0;
+    }
+  }
+
+  .sature {
+    filter: grayscale(80%);
+  }
+
+  .section__flag {
+    display: block;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: $radius;
+    background: $muted;
+  }
+
+  .section__title {
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    margin-top: 0.5rem;
+  }
+
+  .section__description {
+    margin-top: 0.5rem;
+    color: $mutedForeground;
+    max-width: 900px;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0.5rem auto;
+  }
+
+  .section__tecnologies {
+    margin: 1rem 0;
+  }
+
+  .second__section {
+    background: $muted;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    margin-top: 2rem;
+
+    @media (min-width: 1024px) {
+      div {
+        max-width: 1250px;
+        margin: 0 auto;
+
+        > div {
+          display: flex;
+          align-items: center;
+          margin-top: 2rem;
+          gap: 2rem;
+        }
+      }
+
+      img {
+        max-width: 555px;
+      }
+    }
+
+    header {
+      text-align: center;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      color: $mutedForeground;
+      max-width: 900px;
+      font-size: 1rem;
+      text-align: center;
+    }
+
+    ul {
+      padding: 48px 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+
+      li {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        div {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: flex-start;
+          width: 100%;
+          gap: 4px;
+
+          img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            margin-bottom: 4px;
+          }
+        }
+        h3 {
+          font-weight: 700;
+          font-size: 1.25rem;
+          line-height: 1.75rem;
+        }
+
+        span {
+          color: $mutedForeground;
+        }
+      }
+    }
+  }
+
+  .three__section {
+    padding: 3rem 1.5rem;
+
+    > div {
+      max-width: 1250px;
+      margin: 0 auto;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      padding: 3rem 0;
+      gap: 1rem;
+
+      @media (min-width: 1024px) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+
+        grid-row-gap: 1rem;
+        grid-column-gap: 3rem;
+      }
+    }
+  }
+
+  .section__form {
+    background: $muted;
+    padding: 3rem 1.5rem;
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    form {
+      max-width: 28rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      margin: 0 auto;
+
+      > div {
+        display: flex;
+        flex-direction: column;
+
+        > input,
+        > textarea {
+          background: $background;
+          padding: 0.5rem 0.75rem;
+          line-height: 1.25rem;
+          font-size: 0.875rem;
+          height: 2.5rem;
+          border-radius: calc($radius - 2px);
+          border: 1px solid $input;
+          margin-top: 0.25rem;
+
+          &:focus {
+            outline: 2px solid $ring;
+          }
+        }
+
+        > textarea {
+          height: 6rem;
+          min-height: 80px;
+        }
+      }
+
+      button {
+        color: $primaryForeground;
+        font-weight: 500;
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        padding: 0.5rem 1rem;
+        background: $primary;
+        border-radius: calc($radius - 2px);
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background linear 0.3s;
+
+        &:hover {
+          background: darken($primary, 20%);
+        }
+      }
+    }
+  }
+
+  > footer {
+    padding: 1.5rem 1rem;
+    border-top: 1px solid $border;
+
+    span {
+      font-size: 0.75rem;
+      line-height: 1rem;
+      color: $mutedForeground;
+      text-align: center;
+
+      display: block;
+    }
+  }
+}

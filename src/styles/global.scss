@@ -1,0 +1,46 @@
+@import "./variables";
+@import "./colors";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::selection {
+  background: $foreground;
+  color: $background;
+}
+
+html,
+body,
+#app {
+  background: $background;
+  font-family: $primaryFont;
+  color: $foreground;
+  text-rendering: optimizeLegibility;
+  font-synthesis-weight: none;
+}
+
+button,
+input {
+  border: 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul,
+ol {
+  list-style: none;
+}

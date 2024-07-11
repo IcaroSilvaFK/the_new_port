@@ -1,0 +1,38 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+.container {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+  z-index: 9999;
+
+  button {
+    background: $foreground;
+    padding: 8px 16px;
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+    box-shadow:
+      0 0 #0000,
+      0 0 #0000,
+      0 4px 6px -1px #0000001a,
+      0 2px 4px -2px #0000001a;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: $background;
+      color: $foreground;
+    }
+  }
+
+  .modal {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(2px);
+  }
+}

@@ -1,0 +1,94 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+.container {
+  position: fixed;
+  z-index: 1;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > div {
+    background: $background;
+    border-radius: calc($radius - 4px);
+    padding: 22px;
+
+    max-width: 500px;
+    width: 100%;
+
+    > header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+
+      button {
+        background: transparent;
+        color: $destructive;
+
+        &:hover {
+          color: $destructiveForeground;
+        }
+      }
+    }
+
+    p {
+      font-size: 0.85rem;
+      color: $secondaryForeground;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin: 1rem 0;
+
+      li button {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: transparent;
+
+        border: 1px solid $foreground;
+        color: $foreground;
+
+        padding: 0.875rem 1rem;
+        border-radius: calc($radius - 4px);
+        width: 100%;
+
+        &:hover {
+          filter: brightness(70%);
+          transition: filter linear 0.3s;
+        }
+      }
+    }
+
+    .active {
+      cursor: not-allowed;
+      filter: brightness(70%);
+    }
+
+    > footer {
+      display: flex;
+      justify-content: flex-end;
+
+      button {
+        background: $foreground;
+        color: $background;
+        padding: 8px 16px;
+        border-radius: calc($radius - 4px);
+        font-weight: 700;
+
+        &:hover {
+          background: $muted;
+          color: $mutedForeground;
+        }
+      }
+    }
+  }
+}

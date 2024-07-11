@@ -1,0 +1,20 @@
+@import "../../styles/_colors.scss";
+@import "../../styles/_variables.scss";
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 2rem 1.5rem;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+}
