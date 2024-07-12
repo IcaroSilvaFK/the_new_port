@@ -76,7 +76,7 @@ export function App() {
       <section className={styles.first__section}>
         <div>
           <AnimatedText>
-            <h2>{t('title')}</h2>
+            <h2 dangerouslySetInnerHTML={{ __html: t('title') }} />
           </AnimatedText>
           <p>{t('description')}</p>
           <div>
