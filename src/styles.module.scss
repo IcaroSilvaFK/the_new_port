@@ -278,6 +278,7 @@
           border-radius: calc($radius - 2px);
           border: 1px solid $input;
           margin-top: 0.25rem;
+          color: $mutedForeground;
 
           &:focus {
             outline: 2px solid $ring;

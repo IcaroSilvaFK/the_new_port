@@ -4,7 +4,7 @@ import { X } from 'lucide-react'
 
 import styles from './styles.module.scss'
 import { useCallback } from 'react'
-import { sucess } from '../../externals/toast/toast'
+import { success } from '../../externals/toast/toast'
 import { constants } from '../../common/contants/constants'
 
 export function ModalChangeLanguage() {
@@ -16,7 +16,7 @@ export function ModalChangeLanguage() {
 
   const onRequestSave = useCallback(() => {
     localStorage.setItem(constants.languageKey, language)
-    sucess(t('changeLanguageSucess'))
+    success(t('changeLanguageSucess'))
     handleCloseModalChangeLanguage()
   }, [language])
 

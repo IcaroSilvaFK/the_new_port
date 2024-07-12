@@ -11,11 +11,11 @@ import { Toaster } from 'react-hot-toast'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
+    <Toaster />
     <App />
     <TranslatorContextProvider>
       <Translator />
       <ModalChangeLanguage />
     </TranslatorContextProvider>
-    <Toaster />
   </React.StrictMode>
 )

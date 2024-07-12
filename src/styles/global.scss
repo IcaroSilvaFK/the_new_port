@@ -1,5 +1,5 @@
-@import "./variables";
-@import "./colors";
+@import './variables';
+@import './colors';
 
 * {
   margin: 0;
@@ -20,6 +20,9 @@ body,
   color: $foreground;
   text-rendering: optimizeLegibility;
   font-synthesis-weight: none;
+  scroll-behavior: smooth;
+
+  overflow-x: hidden;
 }
 
 button,
@@ -29,6 +32,11 @@ input {
 
 button {
   cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: brightness(60%);
+  }
 }
 
 a {

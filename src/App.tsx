@@ -1,13 +1,22 @@
 import Marquee from 'react-fast-marquee'
+import { Tilt } from 'react-tilt'
+import { z } from 'zod'
+import { zodResolver } from '@hookform/resolvers/zod'
 
 import { Card } from './components/Card'
 import { Header } from './components/Header'
 import MeImage from './assets/Icaro Black Background.png'
 import { data } from './data/projects'
+import { success } from './externals/toast/toast'
 
 import styles from './styles.module.scss'
 import { useTranslation } from 'react-i18next'
 import { CardTec } from './components/CardTec'
+import { AnimatedText } from './externals/Text'
+import { useForm } from 'react-hook-form'
+import { useCallback, useEffect, useMemo, useState } from 'react'
+import { BounceLoader } from 'react-spinners'
+import { baseApi } from './configs/api'
 
 const resources = [
   'https://media.graphassets.com/1IklfdbR9CVkBlw4Lqnr',
@@ -21,36 +30,72 @@ const resources = [
   'https://raw.githubusercontent.com/gin-gonic/logo/master/color.png',
 ]
 
+const formSchema = z.object({
+  name: z.string(),
+  email: z.string(),
+  message: z.string().min(5),
+})
+
+type FormType = z.infer<typeof formSchema>
+
 export function App() {
   const {
     t,
     i18n: { language },
   } = useTranslation()
 
-  const currentCards = data[language as keyof typeof data]
+  const currentCards = useMemo(() => data[language as keyof typeof data], [language])
+  const { register, reset, handleSubmit } = useForm<FormType>({
+    resolver: zodResolver(formSchema),
+  })
+  const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    success('Email enviado com sucesso!')
+  }, [])
+
+  const onSubmit = useCallback(
+    async (data: FormType) => {
+      try {
+        setIsLoading(true)
+        await baseApi.post('/contacts', data)
+        reset()
+        success('Email enviado com sucesso!')
+      } catch (err) {
+        console.error(err)
+      } finally {
+        setIsLoading(false)
+      }
+    },
+    [reset]
+  )
 
   return (
     <div className={styles.container}>
       <Header />
       <section className={styles.first__section}>
         <div>
-          <h2>{t('title')}</h2>
+          <AnimatedText>
+            <h2>{t('title')}</h2>
+          </AnimatedText>
           <p>{t('description')}</p>
           <div>
             <a href="#services">{t('ourServices')}</a>
             <a href="#contact">{t('contactUs')}</a>
           </div>
         </div>
-        <img
-          src={MeImage}
-          alt="Icaro Vieira"
-          className={`${styles.image__section} ${styles.sature}`}
-        />
+        <Tilt>
+          <img
+            src={MeImage}
+            alt="Icaro Vieira"
+            className={`${styles.image__section} ${styles.sature}`}
+          />
+        </Tilt>
       </section>
       <section className={styles.section__tecnologies}>
         <Marquee>
           {resources.map((res) => (
-            <CardTec image={res} />
+            <CardTec key={res} image={res} />
           ))}
         </Marquee>
       </section>
@@ -59,7 +104,9 @@ export function App() {
           <header>
             <span className={styles.section__flag}>{t('ourServices')}</span>
 
-            <h2 className={styles.section__title}>{t('expertiseInFullStackTitle')}</h2>
+            <AnimatedText>
+              <h2 className={styles.section__title}>{t('expertiseInFullStackTitle')}</h2>
+            </AnimatedText>
           </header>
           <p className={styles.section__description}>{t('expertiseTextDescription')}</p>
           <div>
@@ -82,12 +129,13 @@ export function App() {
                 <span>{t('ginGoLangDescription')}</span>
               </li>
             </ul>
-
-            <img
-              src="https://images.unsplash.com/photo-1643409329501-f17776d3823a?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Icaro Vieira"
-              className={styles.image__section}
-            />
+            <Tilt>
+              <img
+                src="https://images.unsplash.com/photo-1643409329501-f17776d3823a?q=80&w=2787&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Icaro Vieira"
+                className={styles.image__section}
+              />
+            </Tilt>
           </div>
         </div>
       </section>
@@ -96,14 +144,21 @@ export function App() {
         <div>
           <header>
             <span className={styles.section__flag}>{t('ourWork')}</span>
-            <h2 className={styles.section__title}>{t('showcasingMyExpertise')}</h2>
+            <AnimatedText>
+              <h2 className={styles.section__title}>{t('showcasingMyExpertise')}</h2>
+            </AnimatedText>
           </header>
 
           <p className={styles.section__description}>{t('webProjects')}</p>
 
           <ul>
             {currentCards.map((project) => (
-              <Card title={project.name} description={project.description} image={project.image} />
+              <Card
+                key={project.name}
+                title={project.name}
+                description={project.description}
+                image={project.image}
+              />
             ))}
           </ul>
         </div>
@@ -115,25 +170,36 @@ export function App() {
         </header>
         <p className={styles.section__description}>{t('fillInTheForm')}</p>
 
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <label htmlFor="name">{t('name')}</label>
-            <input type="text" name="name" id="name" placeholder={t('typeYourName')} />
+            <input type="text" id="name" placeholder={t('typeYourName')} {...register('name')} />
           </div>
           <div>
             <label htmlFor="email">{t('email')}</label>
-            <input type="email" name="email" id="email" placeholder={t('typeYourEmail')} />
+            <input
+              type="email"
+              id="email"
+              placeholder={t('typeYourEmail')}
+              {...register('email')}
+            />
           </div>
           <div>
             <label htmlFor="messsage">{t('message')}</label>
-            <textarea name="messsage" id="messsage" placeholder={t('typeYourMessage')}></textarea>
+            <textarea
+              id="messsage"
+              placeholder={t('typeYourMessage')}
+              {...register('message')}
+            ></textarea>
           </div>
-          <button>{t('submit')}</button>
+          <button disabled={isLoading}>
+            {isLoading ? <BounceLoader size={20} /> : t('submit')}
+          </button>
         </form>
       </section>
 
       <footer>
-        <span>&copy; Icaro Vieira. All rights reserved.</span>
+        <span>&copy; Icaro Vieira. {t('copy')}</span>
       </footer>
     </div>
   )
