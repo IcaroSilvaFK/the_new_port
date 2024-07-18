@@ -116,6 +116,10 @@ export function App() {
                 <span>{t('reactDescription')}</span>
               </li>
               <li>
+                <h3>React Native</h3>
+                <span>{t('reactNativeDescription')}</span>
+              </li>
+              <li>
                 <h3>NextJS</h3>
                 <span>{t('nextJsDescription')}</span>
               </li>

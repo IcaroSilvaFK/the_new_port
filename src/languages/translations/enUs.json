@@ -8,6 +8,7 @@
     "expertiseInFullStackTitle": "Expertise in Full-Stack Development",
     "expertiseTextDescription": "Icaro Vieira, we specialize in delivering cutting-edge web solutions using the latest technologies. Our expertise spans Go, JavaScript, and TypeScript, with a focus on frameworks such as React, Next.js, NestJS, and Gin.",
     "reactDescription": "Refine your user interfaces with our expert proficiency in React, ensuring they are dynamic and responsive.",
+    "reactNativeDescription": "Perfect your user interfaces with our expertise in React Native, ensuring that they are dynamic and reactive for mobile platforms.",
     "nextJsDescription": "Unlock the full potential of Next.js for server-side rendering, static site generation, and a myriad of other capabilities.",
     "nestJsDescription": "Empower your projects with our profound expertise in NestJS to construct highly scalable and efficient backend applications.",
     "ginGoLangDescription": "Harness the robust capabilities of the Gin web framework to craft high-performance and lightweight Go applications, optimizing both speed and efficiency.",
