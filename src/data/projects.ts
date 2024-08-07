@@ -20,6 +20,11 @@ export const data = {
       description: `O Sigmais Payload Converter é uma ferramenta essencial para desenvolvedores de IoT que necessitam converter payloads entre formatos como JSON, CBOR e MessagePack. Além de permitir visualização e edição de payloads, o conversor é intuitivo, suporta diversos formatos e é completamente gratuito para uso, facilitando o trabalho com dados de IoT de maneira eficiente e acessível.`,
       image: 'https://media.graphassets.com/Qe9UqECRnCuUIVCwCYHQ',
     },
+    {
+      name: "Brand Monitor | Monitoramento de Marca",
+      description: `Brand Monitor é seu parceiro vigilante, oferecendo vigilância 24 horas por dia de sua marca em todas as plataformas digitais. Nossos serviços garantem que seus investimentos em marketing produzam retornos máximos, combatendo ativamente práticas inadequadas. Dedicamo-nos a eliminar a concorrência desleal, violações de marca e atividades fraudulentas, salvaguardando a integridade da sua marca e aumentando a sua presença no cenário digital.`,
+      image: "https://res.cloudinary.com/dbrbzam8h/image/upload/v1723056385/bpwyvz4mygj4mnedocec.png"
+    }
   ],
   en: [
     {
@@ -42,5 +47,10 @@ export const data = {
       description: `Sigmais Payload Converter is an essential tool for IoT developers who need to convert payloads between formats such as JSON, CBOR and MessagePack. As well as allowing you to view and edit payloads, the converter is intuitive, supports various formats and is completely free to use, making it easy to work with IoT data in an efficient and accessible way.`,
       image: 'https://media.graphassets.com/Qe9UqECRnCuUIVCwCYHQ',
     },
+    {
+      name: "Brand Monitor | Brand Monitoring",
+      description: `Brand Monitor is your vigilant partner, offering round-the-clock surveillance of your brand across all digital platforms. Our services ensure that your marketing investments yield maximum returns by actively combating improper practices. We are dedicated to eliminating unfair competition, brand violations, and fraudulent activities, safeguarding your brand's integrity and enhancing its presence in the digital landscape.`,
+      image: "https://res.cloudinary.com/dbrbzam8h/image/upload/v1723056385/bpwyvz4mygj4mnedocec.png"
+    }
   ],
 }
