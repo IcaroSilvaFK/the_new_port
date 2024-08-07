@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Toaster } from 'react-hot-toast'
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 import './languages/i18n.ts'
 import './styles/global.scss'
@@ -19,5 +20,6 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     </TranslatorContextProvider>
     <Toaster />
     <Analytics />
+    <SpeedInsights />
   </React.StrictMode>
 )
