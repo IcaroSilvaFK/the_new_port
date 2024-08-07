@@ -2,6 +2,10 @@ import Marquee from 'react-fast-marquee'
 import { Tilt } from 'react-tilt'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { useTranslation } from 'react-i18next'
+import { useForm } from 'react-hook-form'
+import { BounceLoader } from 'react-spinners'
+import { useCallback, useMemo, useState } from 'react'
 
 import { Card } from './components/Card'
 import { Header } from './components/Header'
@@ -10,12 +14,8 @@ import { data } from './data/projects'
 import { success } from './externals/toast/toast'
 
 import styles from './styles.module.scss'
-import { useTranslation } from 'react-i18next'
 import { CardTec } from './components/CardTec'
 import { AnimatedText } from './externals/Text'
-import { useForm } from 'react-hook-form'
-import { useCallback, useEffect, useMemo, useState } from 'react'
-import { BounceLoader } from 'react-spinners'
 import { baseApi } from './configs/api'
 
 const resources = [
@@ -25,6 +25,7 @@ const resources = [
   'https://media.graphassets.com/cgscjaI9R0iTAdcC0Oge',
   'https://media.graphassets.com/vWIFReYnTDi0GHiKfYJ6',
   'https://media.graphassets.com/MewWroVZSDKc3WMOMr98',
+  'https://avatars.githubusercontent.com/u/13810373?s=48&v=4',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/520px-Go_Logo_Blue.svg.png',
   'https://camo.githubusercontent.com/794ace8f539408352061bb193fce26a0df05bed29d57d2125968fa99143b67cd/68747470733a2f2f63646e2e6c6162737461636b2e636f6d2f696d616765732f6563686f2d6c6f676f2e737667',
   'https://raw.githubusercontent.com/gin-gonic/logo/master/color.png',
@@ -50,17 +51,13 @@ export function App() {
   })
   const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    success('Email enviado com sucesso!')
-  }, [])
-
   const onSubmit = useCallback(
     async (data: FormType) => {
       try {
         setIsLoading(true)
         await baseApi.post('/contacts', data)
         reset()
-        success('Email enviado com sucesso!')
+        success(t('emailSentedSuccess'))
       } catch (err) {
         console.error(err)
       } finally {

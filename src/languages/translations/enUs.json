@@ -32,6 +32,7 @@
     "enTranslate": "English (US)",
     "ptTranslate": "Portuguese (Brazil)",
     "save": "Salve",
-    "copy": "All rights reserved."
+    "copy": "All rights reserved.",
+    "emailSentedSuccess": "Email sent successfully!"
   }
 }
