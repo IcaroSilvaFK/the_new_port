@@ -92,7 +92,7 @@ export function App() {
       <section className={styles.section__tecnologies}>
         <Marquee>
           {resources.map((res) => (
-            <CardTec key={res} image={res} />
+            <CardTec key={res} image={res} alt={res} />
           ))}
         </Marquee>
       </section>

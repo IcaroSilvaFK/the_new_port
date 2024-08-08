@@ -5,15 +5,16 @@ import styles from './styles.module.scss'
 type Props = {
   as?: string
   image: string
+  alt?: string
 }
 
 export function CardTec(props: Props) {
-  const { as, image } = props
+  const { as, image, alt } = props
   const Component = as ? Slot : 'li'
 
   return (
     <Component className={styles.container}>
-      <img src={image} />
+      <img src={image} alt={alt} />
     </Component>
   )
 }
