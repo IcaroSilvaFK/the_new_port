@@ -1,15 +1,15 @@
+import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/react'
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Toaster } from 'react-hot-toast'
-import { Analytics } from '@vercel/analytics/react'
-import { SpeedInsights } from '@vercel/speed-insights/react'
 
-import './languages/i18n.ts'
-import './styles/global.scss'
-import { Translator } from './components/Translator/index.tsx'
-import { TranslatorContextProvider } from './contexts/TranslatorContext.tsx'
 import { App } from './App.tsx'
 import { ModalChangeLanguage } from './components/ModalChangeLanguage/index.tsx'
+import { Translator } from './components/Translator/index.tsx'
+import { TranslatorContextProvider } from './contexts/TranslatorContext.tsx'
+import './languages/i18n.ts'
+import './styles/global.scss'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -19,7 +19,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <ModalChangeLanguage />
     </TranslatorContextProvider>
     <Toaster />
-    <Analytics />
-    <SpeedInsights />
+    <Analytics framework="react" />
+    <SpeedInsights framework="react" />
   </React.StrictMode>
 )
