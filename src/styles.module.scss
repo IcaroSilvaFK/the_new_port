@@ -35,13 +35,21 @@
       margin-top: 0.5rem;
       max-width: 600px;
       font-size: 1.2rem;
+
+      @media (max-width: 800px) {
+        font-size: 0.875rem;
+      }
+
+      @media (max-width: 500px) {
+        padding: 6px 0;
+        font-size: 0.875rem;
+      }
     }
 
-    div > div {
+    .first__section__button {
       display: flex;
       gap: 0.5rem;
       margin-top: 1rem;
-
       flex-direction: column;
 
       @media (min-width: 1024px) {
@@ -101,6 +109,23 @@
     @media (min-width: 1024px) {
       aspect-ratio: 1/1;
       margin: 0 0;
+    }
+  }
+  .first__section__title {
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: 800px) {
+      h2 {
+        font-size: 1.625rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      padding: 6px 0;
+      h2 {
+        font-size: 1rem;
+      }
     }
   }
 

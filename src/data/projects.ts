@@ -24,6 +24,11 @@ export const data = {
       name: "Brand Monitor | Monitoramento de Marca",
       description: `Brand Monitor é seu parceiro vigilante, oferecendo vigilância 24 horas por dia de sua marca em todas as plataformas digitais. Nossos serviços garantem que seus investimentos em marketing produzam retornos máximos, combatendo ativamente práticas inadequadas. Dedicamo-nos a eliminar a concorrência desleal, violações de marca e atividades fraudulentas, salvaguardando a integridade da sua marca e aumentando a sua presença no cenário digital.`,
       image: "https://res.cloudinary.com/dbrbzam8h/image/upload/v1723056385/bpwyvz4mygj4mnedocec.png"
+    },
+    {
+      name: "Rasplec Digital",
+      description: `O projeto "Rasplec Digital" foi uma solução inovadora que envolveu o desenvolvimento completo de backend e frontend para criar uma plataforma de raspadinha digital. O sistema integrou automação de pagamentos via Pix, permitindo envio e recebimento de forma rápida e segura. Além disso, foi implementado um dashboard administrativo que possibilitava a validação e o monitoramento em tempo real das transações financeiras, com métricas detalhadas para análise de desempenho. A combinação dessas funcionalidades resultou em uma experiência eficiente e intuitiva para os usuários e gestores da plataforma.`,
+      image: "https://res.cloudinary.com/dfjqajcwp/image/upload/v1732548483/vuliwqhb9ylwvwtvwqtn.png"
     }
   ],
   en: [
@@ -51,6 +56,11 @@ export const data = {
       name: "Brand Monitor | Brand Monitoring",
       description: `Brand Monitor is your vigilant partner, offering round-the-clock surveillance of your brand across all digital platforms. Our services ensure that your marketing investments yield maximum returns by actively combating improper practices. We are dedicated to eliminating unfair competition, brand violations, and fraudulent activities, safeguarding your brand's integrity and enhancing its presence in the digital landscape.`,
       image: "https://res.cloudinary.com/dbrbzam8h/image/upload/v1723056385/bpwyvz4mygj4mnedocec.png"
+    },
+    {
+      name: "Rasplec Digital",
+      description: `The “Rasplec Digital” project was an innovative solution that involved the complete development of the backend and frontend to create a digital scratch card platform. The system integrated payment automation via Pix, allowing payments to be sent and received quickly and securely. In addition, an administrative dashboard was implemented to enable real-time validation and monitoring of financial transactions, with detailed metrics for performance analysis. The combination of these features resulted in an efficient and intuitive experience for the platform's users and managers.`,
+      image: "https://res.cloudinary.com/dfjqajcwp/image/upload/v1732548483/vuliwqhb9ylwvwtvwqtn.png"
     }
   ],
 }

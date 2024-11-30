@@ -1,20 +1,22 @@
-import Marquee from 'react-fast-marquee'
-import { Tilt } from 'react-tilt'
-import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useTranslation } from 'react-i18next'
-import { useForm } from 'react-hook-form'
-import { BounceLoader } from 'react-spinners'
 import { useCallback, useMemo, useState } from 'react'
 
-import { Card } from './components/Card'
-import { Header } from './components/Header'
+import { motion } from 'framer-motion'
+import Marquee from 'react-fast-marquee'
+import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
+import { BounceLoader } from 'react-spinners'
+import { Tilt } from 'react-tilt'
+import { z } from 'zod'
+
 import MeImage from './assets/Icaro Black Background.png'
-import { data } from './data/projects'
-import { success } from './externals/toast/toast'
+import { Card } from './components/Card'
 import { CardTec } from './components/CardTec'
-import { AnimatedText } from './externals/Text'
+import { Header } from './components/Header'
 import { baseApi } from './configs/api'
+import { data } from './data/projects'
+import { AnimatedText } from './externals/Text'
+import { success } from './externals/toast/toast'
 
 import styles from './styles.module.scss'
 
@@ -51,6 +53,15 @@ export function App() {
   })
   const [isLoading, setIsLoading] = useState(false)
 
+  const splitedText = t('title')
+    .split('<br>')
+    .map((text) =>
+      text
+        .split('')
+        .map((letter, idx) => (letter.trim() === '' && idx > 0 ? '&nbsp;' : letter.trim()))
+        .filter(Boolean)
+    )
+
   const onSubmit = useCallback(
     async (data: FormType) => {
       try {
@@ -73,10 +84,25 @@ export function App() {
       <section className={styles.first__section}>
         <div>
           <AnimatedText>
-            <h2 dangerouslySetInnerHTML={{ __html: t('title') }} />
+            {splitedText.map((row, line) => (
+              <div className={styles.first__section__title}>
+                {row.map((letter, index) => (
+                  <motion.h2
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{
+                      duration: 0.25,
+                      delay: ((line + 1) * index) / 10,
+                    }}
+                    key={index}
+                    dangerouslySetInnerHTML={{ __html: letter }}
+                  />
+                ))}
+              </div>
+            ))}
           </AnimatedText>
           <p>{t('description')}</p>
-          <div>
+          <div className={styles.first__section__button}>
             <a href="#services">{t('ourServices')}</a>
             <a href="#contact">{t('contactUs')}</a>
           </div>
