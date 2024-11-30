@@ -31,6 +31,8 @@ const resources = [
   'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/520px-Go_Logo_Blue.svg.png',
   'https://raw.githubusercontent.com/gin-gonic/logo/master/color.png',
   'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Svelte_Logo.svg/996px-Svelte_Logo.svg.png',
+  'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/500px-Angular_full_color_logo.svg.png',
+  'https://echo.labstack.com/img/logo-light.svg',
 ]
 
 const formSchema = z.object({
