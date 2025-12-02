@@ -19,7 +19,7 @@ const resources = {
   pt: ptBr,
 }
 
-let defaultLang: string
+let defaultLang: string = ""
 
 if(defaultSelectedLanguage) {
   defaultLang = defaultSelectedLanguage
