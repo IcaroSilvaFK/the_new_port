@@ -49,7 +49,7 @@ export function App() {
     i18n: { language },
   } = useTranslation()
 
-  const currentCards = useMemo(() => data[language as keyof typeof data], [language])
+  const currentCards = useMemo(() => data[language as keyof typeof data] ?? [], [language])
   const { register, reset, handleSubmit } = useForm<FormType>({
     resolver: zodResolver(formSchema),
   })
@@ -187,7 +187,7 @@ export function App() {
           <p className={styles.section__description}>{t('webProjects')}</p>
 
           <ul>
-            {currentCards.map((project) => (
+            {currentCards?.map((project) => (
               <Card
                 key={project.name}
                 title={project.name}
