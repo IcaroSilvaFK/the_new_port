@@ -19,6 +19,18 @@ const resources = {
   pt: ptBr,
 }
 
+let defaultLang: string
+
+if(defaultSelectedLanguage) {
+  defaultLang = defaultSelectedLanguage
+}
+if(!defaultSelectedLanguage) {
+  defaultLang = browserKeys[browserLang as keyof typeof browserKeys]
+}
+if(!defaultLang) {
+  defaultLang = browserKeys['pt-BR']
+}
+
 i18n
   .use(initReactI18next)
   //@ts-expect-error
