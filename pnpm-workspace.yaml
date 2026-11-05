@@ -1,4 +1,13 @@
+packages:
+  - '.'
+
+# Dependencies allowed to run install scripts (pnpm 10+/11)
 allowBuilds:
-  '@swc/core': set this to true or false
-  '@vercel/speed-insights': set this to true or false
-  esbuild: set this to true or false
+  '@swc/core': true
+  '@vercel/speed-insights': true
+  esbuild: true
+
+onlyBuiltDependencies:
+  - '@swc/core'
+  - '@vercel/speed-insights'
+  - esbuild
