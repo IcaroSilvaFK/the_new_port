@@ -1,0 +1,151 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+.approach {
+  background: $white;
+  border-top: 1px solid $haze;
+  border-bottom: 1px solid $haze;
+}
+
+.block {
+  @include container;
+  padding-top: clamp(4.5rem, 10vw, 7rem);
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+
+  &:last-child {
+    padding-bottom: clamp(4.5rem, 10vw, 7rem);
+  }
+}
+
+.title {
+  font-family: $displayFont;
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 20ch;
+  margin-bottom: 2.75rem;
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem;
+
+  li {
+    svg {
+      color: $cobalt;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      font-family: $displayFont;
+      font-size: 1.2rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      color: $slate;
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+  }
+}
+
+.steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.5rem;
+  list-style: none;
+
+  li {
+    position: relative;
+    padding-top: 2.75rem;
+
+    h3 {
+      font-family: $displayFont;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      color: $slate;
+      font-size: 0.97rem;
+      line-height: 1.65;
+    }
+  }
+}
+
+.number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: $white;
+  border: 1px solid $haze;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: $cobalt;
+  z-index: 1;
+}
+
+.track {
+  position: absolute;
+  top: 15px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: $haze;
+
+  span {
+    position: absolute;
+    inset: 0;
+    background: $cobalt;
+    transform-origin: 0 50%;
+  }
+}
+
+@media (max-width: 900px) {
+  .principles {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+
+    li {
+      padding-top: 0;
+      padding-left: 3rem;
+    }
+  }
+
+  // vertical line on small screens
+  .track {
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    right: auto;
+    width: 1px;
+    height: auto;
+
+    span {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 520px) {
+  .principles {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,45 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+.stack {
+  padding: 2.25rem 0 2.5rem;
+  border-top: 1px solid $haze;
+  border-bottom: 1px solid $haze;
+}
+
+.label {
+  @include container;
+  margin-bottom: 1.25rem;
+  font-size: 0.9rem;
+  color: $slate;
+}
+
+.tool {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-right: 2.75rem;
+  font-family: $displayFont;
+  font-size: 1.15rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: $inkSoft;
+  white-space: nowrap;
+  transition: color 0.4s $ease;
+
+  svg {
+    width: 22px;
+    height: 22px;
+    fill: currentColor;
+    transition: fill 0.4s $ease, transform 0.5s $ease;
+  }
+
+  &:hover {
+    color: $ink;
+
+    svg {
+      fill: var(--brand);
+      transform: scale(1.1);
+    }
+  }
+}

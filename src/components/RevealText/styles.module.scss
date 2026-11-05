@@ -1,0 +1,13 @@
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  // room for descenders so the mask doesn't crop them
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+
+.word {
+  display: inline-block;
+  will-change: transform;
+}

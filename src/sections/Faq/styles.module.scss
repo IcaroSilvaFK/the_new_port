@@ -1,0 +1,90 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+.faq {
+  @include container;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 2rem clamp(2rem, 6vw, 6rem);
+  padding-top: clamp(4.5rem, 10vw, 7rem);
+  padding-bottom: clamp(5rem, 12vw, 8rem);
+}
+
+.head {
+  position: sticky;
+  top: 120px;
+  align-self: start;
+}
+
+.title {
+  font-family: $displayFont;
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.6vw, 2.9rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 12ch;
+}
+
+.list {
+  border-top: 1px solid $haze;
+
+  li {
+    border-bottom: 1px solid $haze;
+  }
+
+  button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1.4rem 0;
+    text-align: left;
+    font-size: 1.08rem;
+    font-weight: 500;
+    color: $ink;
+    transition: color 0.3s $ease;
+
+    &:hover {
+      color: $cobalt;
+    }
+  }
+}
+
+.icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid $haze;
+  transition: background-color 0.4s $ease, color 0.4s $ease, border-color 0.4s $ease;
+
+  .open & {
+    background: $ink;
+    border-color: $ink;
+    color: $paper;
+  }
+}
+
+.answer {
+  overflow: hidden;
+
+  p {
+    padding-bottom: 1.5rem;
+    max-width: 40rem;
+    color: $slate;
+    line-height: 1.75;
+  }
+}
+
+@media (max-width: 900px) {
+  .faq {
+    grid-template-columns: 1fr;
+  }
+
+  .head {
+    position: static;
+  }
+}

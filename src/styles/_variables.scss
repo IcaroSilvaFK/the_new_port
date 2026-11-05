@@ -1,7 +1,28 @@
-$radius: 0.5rem;
-$primaryFont: "Manrope", sans-serif;
+$primaryFont: 'Geist', system-ui, -apple-system, sans-serif;
+$displayFont: 'Bricolage Grotesque', 'Geist', sans-serif;
 
-$radiusXl: calc($radius + 4px);
+$radius: 14px;
+$radiusXl: 28px;
 $radiusLg: $radius;
-$radiusMd: calc($radius - 2px);
-$radiusSm: calc($radius - 4px);
+$radiusMd: 10px;
+$radiusSm: 6px;
+$radiusFull: 9999px;
+
+$ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+$shadowSm: 0 1px 2px rgba(15, 22, 51, 0.06);
+$shadowMd: 0 10px 30px -12px rgba(15, 22, 51, 0.18);
+$shadowLg: 0 40px 80px -30px rgba(15, 22, 51, 0.35);
+$shadowPrimary: 0 14px 30px -12px rgba(47, 79, 224, 0.55);
+$shadowAccent: $shadowPrimary;
+
+$container: 1200px;
+$gutter: clamp(1rem, 4vw, 2.5rem);
+
+@mixin container {
+  width: 100%;
+  max-width: calc(#{$container} + 5rem);
+  margin: 0 auto;
+  padding-left: $gutter;
+  padding-right: $gutter;
+}

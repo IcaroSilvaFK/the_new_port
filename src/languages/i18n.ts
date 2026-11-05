@@ -1,47 +1,48 @@
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 
-import ptBr from './translations/ptBr.json'
-import enUs from './translations/enUs.json'
 import { constants } from '../common/contants/constants'
-
-const browserKeys = {
-  'pt-BR': 'pt',
-  'en-US': 'en',
-}
-
-const browserLang = navigator.language
-
-const defaultSelectedLanguage = localStorage.getItem(constants.languageKey)
+import enUs from './translations/enUs.json'
+import ptBr from './translations/ptBr.json'
 
 const resources = {
   en: enUs,
   pt: ptBr,
 }
 
-let defaultLang: string = ""
+type Lang = keyof typeof resources
 
-if(defaultSelectedLanguage) {
-  defaultLang = defaultSelectedLanguage
-}
-if(!defaultSelectedLanguage) {
-  defaultLang = browserKeys[browserLang as keyof typeof browserKeys]
-}
-if(!defaultLang) {
-  defaultLang = browserKeys['pt-BR']
+// Accepts 'pt', 'pt-BR', 'en-GB', 'EN'… and maps to a supported language.
+function normalize(value: string | null | undefined): Lang | undefined {
+  const base = value?.slice(0, 2).toLowerCase()
+  return base && base in resources ? (base as Lang) : undefined
 }
 
-i18n
-  .use(initReactI18next)
-  //@ts-expect-error
-  .init({
-    resources,
-    lng: defaultSelectedLanguage
-      ? defaultSelectedLanguage
-      : browserKeys[browserLang as keyof typeof browserKeys],
-    interpolation: {
-      scapeValue: true,
-    },
-  })
+function readStored() {
+  try {
+    return localStorage.getItem(constants.languageKey)
+  } catch {
+    return null
+  }
+}
+
+const browserLang = navigator.languages?.map(normalize).find(Boolean) ?? normalize(navigator.language)
+
+const initialLang = normalize(readStored()) ?? browserLang ?? 'pt'
+
+i18n.use(initReactI18next).init({
+  resources,
+  lng: initialLang,
+  fallbackLng: 'pt',
+  supportedLngs: ['pt', 'en'],
+  interpolation: {
+    escapeValue: false, // React already escapes
+  },
+})
+
+document.documentElement.lang = initialLang === 'pt' ? 'pt-BR' : 'en'
+i18n.on('languageChanged', (lng) => {
+  document.documentElement.lang = lng === 'pt' ? 'pt-BR' : 'en'
+})
 
 export default i18n

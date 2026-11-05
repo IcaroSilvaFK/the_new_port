@@ -8,34 +8,49 @@
 }
 
 *::selection {
-  background: $foreground;
-  color: $background;
+  background: $cobalt;
+  color: $white;
 }
 
-html,
-body,
-#app {
-  background: $background;
-  font-family: $primaryFont;
-  color: $foreground;
-  text-rendering: optimizeLegibility;
-  font-synthesis-weight: none;
-  scroll-behavior: smooth;
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+body {
+  min-height: 100vh;
+  background: $paper;
+  color: $ink;
+  font-family: $primaryFont;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
 button,
-input {
+input,
+textarea {
   border: 0;
+  font: inherit;
+  color: inherit;
 }
 
 button {
   cursor: pointer;
+  background: none;
 
   &:disabled {
     cursor: not-allowed;
-    filter: brightness(60%);
   }
 }
 
@@ -44,11 +59,50 @@ a {
   color: inherit;
 }
 
-a:hover {
-  text-decoration: underline;
+a,
+button,
+input,
+textarea {
+  &:focus-visible {
+    outline: 2px solid $cobalt;
+    outline-offset: 3px;
+  }
 }
 
 ul,
 ol {
   list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: $paper;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $haze;
+  border-radius: $radiusFull;
+  border: 2px solid $paper;
+
+  &:hover {
+    background: $slate;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
