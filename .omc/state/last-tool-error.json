@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"ls /home/whyy/www | grep -i balc; d=$(ls -d /home/whyy/www/*balc* /home/whyy/*balc* 2>/dev/null | head -1); echo \\\"dir=$d\\\"; [ -n \\\"$d\\\" ] && (ls $d; find $d -maxdepth 3 -name package.json...",
+  "error": "Exit code 1\n(eval):1: no matches found: /home/whyy/www/*balc*\ndir=",
+  "timestamp": "2026-11-05T19:15:21.442Z",
+  "retry_count": 1
+}

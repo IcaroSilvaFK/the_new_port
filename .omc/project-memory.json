@@ -1,0 +1,304 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1793902835729,
+  "projectRoot": "/home/whyy/www/the_new_port",
+  "techStack": {
+    "languages": [
+      {
+        "name": "JavaScript/TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "package.json"
+        ]
+      },
+      {
+        "name": "TypeScript",
+        "version": null,
+        "confidence": "high",
+        "markers": [
+          "tsconfig.json"
+        ]
+      }
+    ],
+    "frameworks": [
+      {
+        "name": "react",
+        "version": "18.3.1",
+        "category": "frontend"
+      },
+      {
+        "name": "react-dom",
+        "version": "18.3.1",
+        "category": "frontend"
+      },
+      {
+        "name": "vite",
+        "version": "5.3.1",
+        "category": "build"
+      }
+    ],
+    "packageManager": "pnpm",
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": "pnpm build",
+    "testCommand": null,
+    "lintCommand": "pnpm lint",
+    "devCommand": "pnpm dev",
+    "scripts": {
+      "dev": "vite",
+      "build": "tsc -b && vite build",
+      "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+      "preview": "vite preview"
+    }
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": "type-based"
+  },
+  "structure": {
+    "isMonorepo": true,
+    "workspaces": [],
+    "mainDirectories": [
+      "public",
+      "src"
+    ],
+    "gitBranches": {
+      "defaultBranch": "main",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "dist": {
+      "path": "dist",
+      "purpose": "Distribution/build output",
+      "fileCount": 8,
+      "lastAccessed": 1793902835715,
+      "keyFiles": [
+        "android-chrome-192x192.png",
+        "android-chrome-512x512.png",
+        "apple-touch-icon.png",
+        "favicon-16x16.png",
+        "favicon-32x32.png"
+      ]
+    },
+    "public": {
+      "path": "public",
+      "purpose": "Public files",
+      "fileCount": 7,
+      "lastAccessed": 1793902835715,
+      "keyFiles": [
+        "android-chrome-192x192.png",
+        "android-chrome-512x512.png",
+        "apple-touch-icon.png",
+        "favicon-16x16.png",
+        "favicon-32x32.png"
+      ]
+    },
+    "src": {
+      "path": "src",
+      "purpose": "Source code",
+      "fileCount": 4,
+      "lastAccessed": 1793902835721,
+      "keyFiles": [
+        "App.tsx",
+        "main.tsx",
+        "styles.module.scss",
+        "vite-env.d.ts"
+      ]
+    },
+    "dist/assets": {
+      "path": "dist/assets",
+      "purpose": "Static assets",
+      "fileCount": 2,
+      "lastAccessed": 1793902835725,
+      "keyFiles": [
+        "index-Dnm3YSc3.js",
+        "index-F4DxGdDq.css"
+      ]
+    },
+    "src/assets": {
+      "path": "src/assets",
+      "purpose": "Static assets",
+      "fileCount": 2,
+      "lastAccessed": 1793902835726,
+      "keyFiles": [
+        "Icaro Black Background.png",
+        "Icaro.jpeg"
+      ]
+    },
+    "src/components": {
+      "path": "src/components",
+      "purpose": "UI components",
+      "fileCount": 0,
+      "lastAccessed": 1793902835726,
+      "keyFiles": []
+    },
+    "src/data": {
+      "path": "src/data",
+      "purpose": "Data files",
+      "fileCount": 1,
+      "lastAccessed": 1793902835727,
+      "keyFiles": [
+        "projects.ts"
+      ]
+    }
+  },
+  "hotPaths": [
+    {
+      "path": "src/App.tsx",
+      "accessCount": 40,
+      "lastAccessed": 1785336034665,
+      "type": "file"
+    },
+    {
+      "path": "src/styles.module.scss",
+      "accessCount": 11,
+      "lastAccessed": 1785335996082,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Header/styles.module.scss",
+      "accessCount": 7,
+      "lastAccessed": 1785335672535,
+      "type": "file"
+    },
+    {
+      "path": "src/styles/_colors.scss",
+      "accessCount": 7,
+      "lastAccessed": 1793903137752,
+      "type": "file"
+    },
+    {
+      "path": "src/styles/global.scss",
+      "accessCount": 7,
+      "lastAccessed": 1793903139602,
+      "type": "file"
+    },
+    {
+      "path": "index.html",
+      "accessCount": 6,
+      "lastAccessed": 1785335456858,
+      "type": "file"
+    },
+    {
+      "path": "src/styles/_variables.scss",
+      "accessCount": 6,
+      "lastAccessed": 1793903138669,
+      "type": "file"
+    },
+    {
+      "path": "src/components/CardTec/styles.module.scss",
+      "accessCount": 5,
+      "lastAccessed": 1785335484282,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Translator/styles.module.scss",
+      "accessCount": 5,
+      "lastAccessed": 1785335489394,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ModalChangeLanguage/styles.module.scss",
+      "accessCount": 4,
+      "lastAccessed": 1785335258802,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Header/index.tsx",
+      "accessCount": 4,
+      "lastAccessed": 1785335661273,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Card/styles.module.scss",
+      "accessCount": 3,
+      "lastAccessed": 1779365633751,
+      "type": "file"
+    },
+    {
+      "path": "src/data/projects.ts",
+      "accessCount": 3,
+      "lastAccessed": 1785335244243,
+      "type": "file"
+    },
+    {
+      "path": "src/languages/translations/ptBr.json",
+      "accessCount": 3,
+      "lastAccessed": 1785335956217,
+      "type": "file"
+    },
+    {
+      "path": "src/languages/translations/enUs.json",
+      "accessCount": 3,
+      "lastAccessed": 1785335960549,
+      "type": "file"
+    },
+    {
+      "path": "src/components/CardTec/index.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1785335244669,
+      "type": "file"
+    },
+    {
+      "path": "src/components/ModalChangeLanguage/index.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1785335250894,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Translator/index.tsx",
+      "accessCount": 2,
+      "lastAccessed": 1785335251351,
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "accessCount": 1,
+      "lastAccessed": 1779364770922,
+      "type": "file"
+    },
+    {
+      "path": "src/components/Card/index.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1779364792054,
+      "type": "file"
+    },
+    {
+      "path": "src/externals/Text/index.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1779366666038,
+      "type": "file"
+    },
+    {
+      "path": "src",
+      "accessCount": 1,
+      "lastAccessed": 1779369544769,
+      "type": "directory"
+    },
+    {
+      "path": "src/main.tsx",
+      "accessCount": 1,
+      "lastAccessed": 1785335864335,
+      "type": "file"
+    },
+    {
+      "path": "src/externals/toast/toast.ts",
+      "accessCount": 1,
+      "lastAccessed": 1785335864797,
+      "type": "file"
+    },
+    {
+      "path": "src/assets/Icaro Black Background.png",
+      "accessCount": 1,
+      "lastAccessed": 1793903054454,
+      "type": "file"
+    }
+  ],
+  "userDirectives": []
+}
