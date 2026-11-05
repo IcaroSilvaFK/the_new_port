@@ -13,8 +13,14 @@ export function Work() {
     i18n: { language },
   } = useTranslation()
   const projects = data[(language?.slice(0, 2) as keyof typeof data) ?? 'pt'] ?? data.pt
-  const [active, setActive] = useState(0)
+  const [active, setActiveState] = useState(0)
+  const [shot, setShot] = useState(0)
   const current = projects[Math.min(active, projects.length - 1)]
+  const setActive = (i: number) => {
+    if (i === active) return
+    setActiveState(i)
+    setShot(0)
+  }
 
   if (!current) return null
 
@@ -79,8 +85,8 @@ export function Work() {
           <div className={styles.frame}>
             <AnimatePresence initial={false}>
               <motion.img
-                key={current.images[0]}
-                src={current.images[0]}
+                key={current.images[shot] ?? current.images[0]}
+                src={current.images[shot] ?? current.images[0]}
                 alt={current.name}
                 initial={{ opacity: 0, scale: 1.06 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -89,6 +95,23 @@ export function Work() {
               />
             </AnimatePresence>
           </div>
+
+          {current.images.length > 1 && (
+            <div className={styles.thumbs}>
+              {current.images.map((img, i) => (
+                <button
+                  key={img}
+                  type="button"
+                  className={i === shot ? styles.thumbActive : undefined}
+                  aria-label={`${current.name} — ${i + 1}/${current.images.length}`}
+                  aria-pressed={i === shot}
+                  onClick={() => setShot(i)}
+                >
+                  <img src={img} alt="" />
+                </button>
+              ))}
+            </div>
+          )}
 
           <AnimatePresence mode="wait" initial={false}>
             <motion.div

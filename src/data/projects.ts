@@ -1,3 +1,9 @@
+import balcazarAgenda from '../assets/projects/balcazar-agenda.webp'
+import balcazarLogin from '../assets/projects/balcazar-login.webp'
+import balcazarTipos from '../assets/projects/balcazar-tipos.webp'
+
+const balcazarImages = [balcazarAgenda, balcazarLogin, balcazarTipos]
+
 export type Project = {
   name: string
   description: string
@@ -6,6 +12,11 @@ export type Project = {
 
 export const data: { pt: Project[]; en: Project[] } = {
   pt: [
+    {
+      name: 'Balcazar | Plataforma de estudos de idiomas',
+      description: `A Balcazar é a plataforma de estudos de uma escola de inglês e espanhol, criada para centralizar a rotina de alunos, professores e administração em um só lugar. A agenda tem visões de dia, semana e mês, com tipos de compromisso configuráveis por cor (aulas de cada idioma, reposições, reuniões e horários bloqueados). A plataforma reúne ainda recursos e livros, mensagens, informativos e notificações com busca global. Na área de pagamentos, a escola acompanha quais alunos estão em dia e gera cobranças, e cada novo cadastro passa pela aprovação de um administrador, mantendo o controle de acesso nas mãos da escola.`,
+      images: balcazarImages,
+    },
     {
       name: 'WeMapp | Inteligência de Carreiras',
       description: `O WeMapp | Inteligência de Carreiras utiliza Next.js e Material UI para fornecer aos profissionais informações detalhadas sobre carreiras, incluindo descrições de cargos, requisitos educacionais, salários e perspectivas de emprego. Além de um banco de dados de carreiras abrangente, o site oferece um blog com artigos úteis sobre temas como elaboração de currículos e negociação salarial. Com uma interface responsiva e atraente, é uma ferramenta indispensável para quem busca orientação ou transição de carreira.`,
@@ -38,6 +49,11 @@ export const data: { pt: Project[]; en: Project[] } = {
     },
   ],
   en: [
+    {
+      name: 'Balcazar | Language learning platform',
+      description: `Balcazar is the study platform of an English and Spanish school, built to bring the daily routine of students, teachers and staff into one place. The schedule offers day, week and month views, with color-coded appointment types the school can configure (classes for each language, make-up lessons, meetings and blocked time). The platform also includes resources and books, messages, announcements and notifications with global search. In the payments area, the school tracks which students are up to date and issues charges, and every new sign-up goes through an administrator's approval, keeping access control in the school's hands.`,
+      images: balcazarImages,
+    },
     {
       name: 'WeMapp | Career Intelligence',
       description: `WeMapp | Career Intelligence uses Next.js and Material UI to provide professionals with detailed information about careers, including job descriptions, educational requirements, salaries and job prospects. In addition to a comprehensive careers database, the site offers a blog with useful articles on topics such as CV writing and salary negotiation. With a responsive and attractive interface, it is an indispensable tool for those seeking career guidance or transition.`,
