@@ -1,9 +1,11 @@
 import type { CSSProperties } from 'react'
-import { Box, Cloud, Database, GitBranch, Hash, Route, Share2, Zap, type LucideIcon } from 'lucide-react'
+import { Bot, Box, Cloud, Database, GitBranch, Hash, Plug, Route, Share2, Zap, type LucideIcon } from 'lucide-react'
 import Marquee from 'react-fast-marquee'
 import { useTranslation } from 'react-i18next'
 import {
   siAdonisjs,
+  siAnthropic,
+  siClaude,
   siAngular,
   siDocker,
   siDotnet,
@@ -69,7 +71,12 @@ const back: Tool[] = [
   { name: 'AdonisJS', icon: siAdonisjs },
   { name: 'Python', icon: siPython },
   { name: 'FastAPI', icon: siFastapi },
+  { name: 'Claude', icon: siClaude },
+  { name: 'Anthropic API', icon: siAnthropic },
   { name: 'OpenAI', icon: siOpenai },
+  { name: 'MCP', icon: Plug, brand: '#2f4fe0' },
+  { name: 'RAG', icon: Database, brand: '#2f4fe0' },
+  { name: 'Agno', icon: Bot, brand: '#ff4017' },
   { name: 'PostgreSQL', icon: siPostgresql },
   { name: 'pgvector', icon: Database, brand: '#4169E1' },
   { name: 'SQL Server', icon: Database, brand: '#CC2927' },

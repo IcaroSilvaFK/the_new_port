@@ -36,6 +36,7 @@ export function Header() {
 
         <nav className={styles.nav}>
           <a href="#services">{t('navServices')}</a>
+          <a href="#ai">{t('navAi')}</a>
           <a href="#work">{t('navWork')}</a>
           <a href="#contact">{t('navContact')}</a>
         </nav>

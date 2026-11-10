@@ -1,4 +1,5 @@
 import { Header } from './components/Header'
+import { Ai } from './sections/Ai'
 import { Approach } from './sections/Approach'
 import { Contact } from './sections/Contact'
 import { Faq } from './sections/Faq'
@@ -15,6 +16,7 @@ export function App() {
         <Hero />
         <Stack />
         <Services />
+        <Ai />
         <Work />
         <Approach />
         <Faq />

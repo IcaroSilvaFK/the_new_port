@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Globe, Plus, Search, Server, Smartphone, Workflow, type LucideIcon } from 'lucide-react'
+import { Globe, Plus, Search, Server, Smartphone, Sparkles, Workflow, type LucideIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { RevealText } from '../../components/RevealText'
@@ -8,12 +8,13 @@ import { ease } from '../../lib/motion'
 import styles from './styles.module.scss'
 
 type Service = {
-  key: 'Web' | 'Systems' | 'Mobile' | 'Seo' | 'Automation'
+  key: 'Ai' | 'Web' | 'Systems' | 'Mobile' | 'Seo' | 'Automation'
   icon: LucideIcon
   tags: string[]
 }
 
 const services: Service[] = [
+  { key: 'Ai', icon: Sparkles, tags: ['Claude', 'OpenAI', 'RAG', 'MCP'] },
   { key: 'Web', icon: Globe, tags: ['React', 'Next.js', 'TypeScript'] },
   { key: 'Systems', icon: Server, tags: ['NestJS', 'Node.js', 'Go', 'Gin'] },
   { key: 'Mobile', icon: Smartphone, tags: ['React Native', 'TypeScript'] },
@@ -23,7 +24,7 @@ const services: Service[] = [
 
 export function Services() {
   const { t } = useTranslation()
-  const [open, setOpen] = useState<Service['key'] | null>('Web')
+  const [open, setOpen] = useState<Service['key'] | null>('Ai')
 
   return (
     <section id="services" className={styles.services}>
