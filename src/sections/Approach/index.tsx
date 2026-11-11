@@ -14,7 +14,7 @@ const principles: { key: string; icon: LucideIcon }[] = [
   { key: 'Partner', icon: Handshake },
 ]
 
-const steps = [1, 2, 3, 4]
+const steps = [1, 2, 3, 4, 5]
 
 export function Approach() {
   const { t } = useTranslation()
@@ -46,6 +46,7 @@ export function Approach() {
 
       <div className={styles.block}>
         <RevealText className={styles.title} text={t('processTitle')} />
+        <p className={styles.lead}>{t('processIntro')}</p>
         <ol className={styles.steps} ref={stepsRef}>
           <span className={styles.track} aria-hidden>
             <motion.span style={{ scaleX: line }} />

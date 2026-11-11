@@ -1,0 +1,76 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+.certs {
+  @include container;
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 2.2fr);
+  gap: 2rem clamp(2rem, 6vw, 6rem);
+  padding-top: clamp(3.5rem, 8vw, 5rem);
+  padding-bottom: clamp(1rem, 3vw, 2rem);
+}
+
+.head {
+  h2 {
+    font-family: $displayFont;
+    font-weight: 500;
+    font-size: 1.35rem;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin-top: 0.4rem;
+    max-width: 18rem;
+    font-size: 0.92rem;
+    color: $slate;
+    line-height: 1.6;
+  }
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+}
+
+.group {
+  h3 {
+    padding-bottom: 0.6rem;
+    margin-bottom: 0.4rem;
+    border-bottom: 1px solid $haze;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: $inkSoft;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.4rem 0;
+    font-size: 0.88rem;
+    line-height: 1.45;
+    color: $inkSoft;
+  }
+
+  time {
+    flex-shrink: 0;
+    font-size: 0.78rem;
+    color: $slate;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (max-width: 1000px) {
+  .certs {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .groups {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

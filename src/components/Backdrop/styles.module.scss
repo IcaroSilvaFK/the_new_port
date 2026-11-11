@@ -1,0 +1,81 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+// Soft colour fields — plain radial gradients (no blur filter) so they stay cheap.
+.field {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  animation: drift 36s ease-in-out infinite alternate;
+}
+
+.a {
+  width: 62vmax;
+  height: 62vmax;
+  top: -24vmax;
+  left: -16vmax;
+  background: radial-gradient(closest-side, rgba(47, 79, 224, 0.13), transparent);
+}
+
+.b {
+  width: 54vmax;
+  height: 54vmax;
+  top: 18vh;
+  right: -22vmax;
+  background: radial-gradient(closest-side, rgba(143, 162, 255, 0.16), transparent);
+  animation-duration: 44s;
+  animation-name: drift-b;
+}
+
+.c {
+  width: 46vmax;
+  height: 46vmax;
+  bottom: -20vmax;
+  left: 22vw;
+  background: radial-gradient(closest-side, rgba(111, 196, 255, 0.11), transparent);
+  animation-duration: 30s;
+  animation-delay: -12s;
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6vw, 5vh, 0) scale(1.08);
+  }
+  100% {
+    transform: translate3d(-4vw, 9vh, 0) scale(0.96);
+  }
+}
+
+@keyframes drift-b {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-7vw, -4vh, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(-2vw, 8vh, 0) scale(0.94);
+  }
+}
+
+.network {
+  position: absolute;
+  inset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .field {
+    animation: none;
+  }
+}

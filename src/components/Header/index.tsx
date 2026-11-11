@@ -52,7 +52,7 @@ export function Header() {
             <span>{(language ?? 'pt').slice(0, 2).toUpperCase()}</span>
           </button>
           <a href="#contact" className={styles.cta}>
-            {t('contactUs')}
+            {t('navCta')}
           </a>
         </div>
 

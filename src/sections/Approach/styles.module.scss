@@ -23,7 +23,7 @@
   font-size: clamp(1.9rem, 3.6vw, 2.9rem);
   line-height: 1.1;
   letter-spacing: -0.03em;
-  max-width: 20ch;
+  max-width: 22ch;
   margin-bottom: 2.75rem;
 }
 
@@ -54,11 +54,19 @@
   }
 }
 
+.lead {
+  margin: -1.25rem 0 3rem;
+  max-width: 42rem;
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: $inkSoft;
+}
+
 .steps {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 2.5rem;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2rem;
   list-style: none;
 
   li {
