@@ -19,7 +19,7 @@ export function Hero() {
 
   // Portrait drifts slower than the page while the hero scrolls away.
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '14%'])
+  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '-8%'])
   const frameY = useTransform(scrollYProgress, [0, 1], ['0%', '-8%'])
 
   // Gentle lean towards the cursor.
@@ -85,7 +85,7 @@ export function Hero() {
             src={portrait}
             alt="Icaro Vieira"
             width={840}
-            height={1121}
+            height={1099}
             style={{ y: imageY }}
             initial={{ scale: 1.18 }}
             animate={{ scale: 1.04 }}
