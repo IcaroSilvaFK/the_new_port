@@ -166,6 +166,17 @@
     "serviceSeoItem3": "Local SEO to show up in your area",
     "serviceAutomationItem1": "Repetitive tasks automated",
     "serviceAutomationItem2": "Dashboards with your business numbers",
-    "serviceAutomationItem3": "Integration between the systems you already use"
+    "serviceAutomationItem3": "Integration between the systems you already use",
+    "heroDeployDone": "deploy complete",
+    "heroLive": "Your product is live",
+    "aboutKicker": "You can call me Icaro",
+    "aboutTitle": "Your project starts with a conversation.",
+    "aboutP1": "I'm a freelance full-stack developer. When we work together, I'm involved from our first conversations about your business through launch and beyond. I'm the one who gets to know your idea, makes the plan, and writes the code.",
+    "aboutP2": "AI is part of my daily work: I use coding agents to move faster without giving up quality, and I also build AI agents and tools into the products I deliver.",
+    "aboutFact1": "I'm involved from the start",
+    "aboutFact2": "Web, mobile and backend",
+    "aboutFact3": "I build AI agents",
+    "aboutFact4": "I hold {{count}} certifications",
+    "navAbout": "About"
   }
 }

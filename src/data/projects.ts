@@ -1,8 +1,12 @@
+import eloLanding from '../assets/projects/elo-landing.webp'
+import eloPagina from '../assets/projects/elo-pagina.webp'
+import eloPainel from '../assets/projects/elo-painel.webp'
 import balcazarAgenda from '../assets/projects/balcazar-agenda.webp'
 import balcazarLogin from '../assets/projects/balcazar-login.webp'
 import balcazarTipos from '../assets/projects/balcazar-tipos.webp'
 
 const balcazarImages = [balcazarAgenda, balcazarLogin, balcazarTipos]
+const eloImages = [eloLanding, eloPagina, eloPainel]
 
 export type Project = {
   name: string
@@ -12,6 +16,11 @@ export type Project = {
 
 export const data: { pt: Project[]; en: Project[] } = {
   pt: [
+    {
+      name: 'Elo | Plataforma de link na bio',
+      description: `O Elo é um produto meu, que projetei, desenvolvi e mantenho do começo ao fim. É uma plataforma de link na bio: cada pessoa monta uma página pública com a sua identidade, reunindo redes sociais, projetos, produtos e contatos em cards, com 14 temas para escolher. No painel, ela acompanha visitas, cliques e contatos recebidos, edita a página e gerencia uma agenda de atendimentos. O Elo também tem um servidor MCP, que permite a assistentes de IA buscar páginas, consultar a agenda e criar agendamentos. A API é em Go, o front-end em React, e a plataforma roda com MongoDB, Meilisearch e armazenamento de arquivos próprio.`,
+      images: eloImages,
+    },
     {
       name: 'Balcazar | Plataforma de estudos de idiomas',
       description: `A Balcazar é a plataforma de estudos de uma escola de inglês e espanhol, criada para centralizar a rotina de alunos, professores e administração em um só lugar. A agenda tem visões de dia, semana e mês, com tipos de compromisso configuráveis por cor (aulas de cada idioma, reposições, reuniões e horários bloqueados). A plataforma reúne ainda recursos e livros, mensagens, informativos e notificações com busca global. Na área de pagamentos, a escola acompanha quais alunos estão em dia e gera cobranças, e cada novo cadastro passa pela aprovação de um administrador, mantendo o controle de acesso nas mãos da escola.`,
@@ -49,6 +58,11 @@ export const data: { pt: Project[]; en: Project[] } = {
     },
   ],
   en: [
+    {
+      name: 'Elo | Link-in-bio platform',
+      description: `Elo is my own product, which I designed, built and maintain end to end. It's a link-in-bio platform: each person builds a public page with their own identity, bringing social networks, projects, products and contacts together in cards, with 14 themes to choose from. In the dashboard, they track visits, clicks and contacts received, edit the page and manage an appointment calendar. Elo also has an MCP server that lets AI assistants search pages, check the calendar and create bookings. The API is written in Go, the frontend in React, and the platform runs on MongoDB, Meilisearch and its own file storage.`,
+      images: eloImages,
+    },
     {
       name: 'Balcazar | Language learning platform',
       description: `Balcazar is the study platform of an English and Spanish school, built to bring the daily routine of students, teachers and staff into one place. The schedule offers day, week and month views, with color-coded appointment types the school can configure (classes for each language, make-up lessons, meetings and blocked time). The platform also includes resources and books, messages, announcements and notifications with global search. In the payments area, the school tracks which students are up to date and issues charges, and every new sign-up goes through an administrator's approval, keeping access control in the school's hands.`,

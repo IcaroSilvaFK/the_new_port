@@ -166,6 +166,17 @@
     "serviceSeoItem3": "SEO local para aparecer na sua região",
     "serviceAutomationItem1": "Tarefas repetitivas automatizadas",
     "serviceAutomationItem2": "Dashboards com os números do negócio",
-    "serviceAutomationItem3": "Integração entre os sistemas que você já usa"
+    "serviceAutomationItem3": "Integração entre os sistemas que você já usa",
+    "heroDeployDone": "deploy concluído",
+    "heroLive": "Seu produto no ar",
+    "aboutKicker": "Pode me chamar de Icaro",
+    "aboutTitle": "Seu projeto começa com uma conversa comigo.",
+    "aboutP1": "Sou desenvolvedor full-stack freelancer. Quando trabalho com você, participo desde as primeiras conversas sobre o negócio até o lançamento e a evolução do produto. Sou eu quem entende a ideia, planeja e coloca a mão no código.",
+    "aboutP2": "A IA faz parte da minha rotina: uso agentes para programar com mais velocidade, sem abrir mão da qualidade, e também construo agentes e ferramentas de IA dentro dos produtos que entrego.",
+    "aboutFact1": "Acompanho seu produto desde o início",
+    "aboutFact2": "Web, mobile e back-end",
+    "aboutFact3": "Construo agentes de IA",
+    "aboutFact4": "Tenho {{count}} certificações",
+    "navAbout": "Sobre"
   }
 }

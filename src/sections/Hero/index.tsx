@@ -2,9 +2,9 @@ import { useRef, type MouseEvent } from 'react'
 import { motion, useMotionValue, useScroll, useSpring, useTransform } from 'framer-motion'
 import { useTranslation } from 'react-i18next'
 
-import portrait from '../../assets/icaro-portrait.webp'
 import { RevealText } from '../../components/RevealText'
 import { ease } from '../../lib/motion'
+import { DevScene } from './DevScene'
 import styles from './styles.module.scss'
 
 const fadeUp = (delay: number) => ({
@@ -17,9 +17,8 @@ export function Hero() {
   const { t } = useTranslation()
   const ref = useRef<HTMLElement>(null)
 
-  // Portrait drifts slower than the page while the hero scrolls away.
+  // The scene drifts slower than the page while the hero scrolls away.
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
-  const imageY = useTransform(scrollYProgress, [0, 1], ['0%', '-8%'])
   const frameY = useTransform(scrollYProgress, [0, 1], ['0%', '-8%'])
 
   // Gentle lean towards the cursor.
@@ -76,21 +75,11 @@ export function Hero() {
       <motion.figure className={styles.portrait} style={{ y: frameY, x: sx, rotateY, rotateX }}>
         <span className={styles.glow} aria-hidden />
         <motion.div
-          className={styles.frame}
-          initial={{ clipPath: 'inset(100% 0% 0% 0% round 999px 999px 28px 28px)' }}
-          animate={{ clipPath: 'inset(0% 0% 0% 0% round 999px 999px 28px 28px)' }}
-          transition={{ duration: 1.4, ease, delay: 0.3 }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease, delay: 0.3 }}
         >
-          <motion.img
-            src={portrait}
-            alt="Icaro Vieira"
-            width={840}
-            height={1099}
-            style={{ y: imageY }}
-            initial={{ scale: 1.18 }}
-            animate={{ scale: 1.04 }}
-            transition={{ duration: 2, ease, delay: 0.3 }}
-          />
+          <DevScene />
         </motion.div>
         <motion.figcaption {...fadeUp(1.35)}>{t('portraitCaption')}</motion.figcaption>
       </motion.figure>
