@@ -1,3 +1,7 @@
+import investfastInicio from '../assets/projects/investfast-inicio.webp'
+import investfastInvestimentos from '../assets/projects/investfast-investimentos.webp'
+import investfastMundo from '../assets/projects/investfast-mundo.webp'
+import investfastProjecoes from '../assets/projects/investfast-projecoes.webp'
 import eloLanding from '../assets/projects/elo-landing.webp'
 import eloPagina from '../assets/projects/elo-pagina.webp'
 import eloPainel from '../assets/projects/elo-painel.webp'
@@ -7,6 +11,7 @@ import balcazarTipos from '../assets/projects/balcazar-tipos.webp'
 
 const balcazarImages = [balcazarAgenda, balcazarLogin, balcazarTipos]
 const eloImages = [eloLanding, eloPagina, eloPainel]
+const investFastImages = [investfastInicio, investfastMundo, investfastInvestimentos, investfastProjecoes]
 
 export type Project = {
   name: string
@@ -20,6 +25,11 @@ export const data: { pt: Project[]; en: Project[] } = {
       name: 'Elo | Plataforma de link na bio',
       description: `O Elo é um produto meu, que projetei, desenvolvi e mantenho do começo ao fim. É uma plataforma de link na bio: cada pessoa monta uma página pública com a sua identidade, reunindo redes sociais, projetos, produtos e contatos em cards, com 14 temas para escolher. No painel, ela acompanha visitas, cliques e contatos recebidos, edita a página e gerencia uma agenda de atendimentos. O Elo também tem um servidor MCP, que permite a assistentes de IA buscar páginas, consultar a agenda e criar agendamentos. A API é em Go, o front-end em React, e a plataforma roda com MongoDB, Meilisearch e armazenamento de arquivos próprio.`,
       images: eloImages,
+    },
+    {
+      name: 'Invest Fast | Finanças pessoais com cara de jogo',
+      description: `O Invest Fast é outro produto meu, construído do zero. É um app de controle de gastos e investimentos (renda fixa e renda variável) com interface de RPG: a pessoa vira um personagem que ganha XP, sobe de nível e cumpre missões ao registrar o dia a dia, investir e fechar o mês no azul. Cada carteira tem orçamento por categoria, metas, indicadores do mês e projeções de 1, 5 e 10 anos com cotações reais, e os investimentos viram ilhas de um mundo em 3D. Por ser um app financeiro, a segurança vem primeiro: todos os dados são cifrados com AES-256-GCM, com uma chave própria por usuário guardada num serviço separado, e o banco só armazena informação cifrada. O back-end é em Go, com arquitetura DDD e testes, e o front-end em React.`,
+      images: investFastImages,
     },
     {
       name: 'Balcazar | Plataforma de estudos de idiomas',
@@ -62,6 +72,11 @@ export const data: { pt: Project[]; en: Project[] } = {
       name: 'Elo | Link-in-bio platform',
       description: `Elo is my own product, which I designed, built and maintain end to end. It's a link-in-bio platform: each person builds a public page with their own identity, bringing social networks, projects, products and contacts together in cards, with 14 themes to choose from. In the dashboard, they track visits, clicks and contacts received, edit the page and manage an appointment calendar. Elo also has an MCP server that lets AI assistants search pages, check the calendar and create bookings. The API is written in Go, the frontend in React, and the platform runs on MongoDB, Meilisearch and its own file storage.`,
       images: eloImages,
+    },
+    {
+      name: 'Invest Fast | Personal finance as a game',
+      description: `Invest Fast is another product of mine, built from scratch. It's a spending and investment tracker (fixed and variable income) with an RPG interface: the user becomes a character who earns XP, levels up and completes quests by logging day-to-day spending, investing and ending the month in the black. Each wallet has per-category budgets, goals, monthly indicators and 1, 5 and 10-year projections with real market quotes, and investments become islands in a 3D world. Since it's a finance app, security comes first: all data is encrypted with AES-256-GCM, with a per-user key kept in a separate service, and the database only stores encrypted information. The backend is written in Go, with a DDD architecture and tests, and the frontend in React.`,
+      images: investFastImages,
     },
     {
       name: 'Balcazar | Language learning platform',
