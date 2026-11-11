@@ -3,74 +3,63 @@
 
 .certs {
   @include container;
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 2.2fr);
-  gap: 2rem clamp(2rem, 6vw, 6rem);
-  padding-top: clamp(3.5rem, 8vw, 5rem);
-  padding-bottom: clamp(1rem, 3vw, 2rem);
+  padding-top: clamp(3rem, 7vw, 4.5rem);
 }
 
 .head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  padding-bottom: 0.9rem;
+  margin-bottom: 0.9rem;
+  border-bottom: 1px solid $haze;
+
   h2 {
     font-family: $displayFont;
     font-weight: 500;
-    font-size: 1.35rem;
+    font-size: 1.25rem;
     letter-spacing: -0.02em;
   }
 
   p {
-    margin-top: 0.4rem;
-    max-width: 18rem;
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     color: $slate;
-    line-height: 1.6;
   }
 }
 
-.groups {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 2rem;
-}
-
-.group {
-  h3 {
-    padding-bottom: 0.6rem;
-    margin-bottom: 0.4rem;
-    border-bottom: 1px solid $haze;
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: $inkSoft;
-  }
+.list {
+  columns: 3;
+  column-gap: 2.5rem;
 
   li {
+    break-inside: avoid;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 1rem;
-    padding: 0.4rem 0;
+    gap: 0.75rem;
+    padding: 0.32rem 0;
     font-size: 0.88rem;
-    line-height: 1.45;
+    line-height: 1.4;
     color: $inkSoft;
   }
 
-  time {
+  small {
     flex-shrink: 0;
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: $slate;
-    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
   }
 }
 
 @media (max-width: 1000px) {
-  .certs {
-    grid-template-columns: 1fr;
+  .list {
+    columns: 2;
   }
 }
 
-@media (max-width: 720px) {
-  .groups {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+@media (max-width: 640px) {
+  .list {
+    columns: 1;
   }
 }

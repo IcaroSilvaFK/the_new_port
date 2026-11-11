@@ -1,7 +1,19 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { AnimatePresence, motion } from 'framer-motion'
-import { ArrowUp, ArrowUpRight, Check, Github, Instagram, Linkedin, Mail, MessageCircle } from 'lucide-react'
+import {
+  ArrowUp,
+  ArrowUpRight,
+  Check,
+  FileCheck,
+  Github,
+  Instagram,
+  KeyRound,
+  LifeBuoy,
+  Linkedin,
+  Mail,
+  MessageCircle,
+} from 'lucide-react'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 import { z } from 'zod'
@@ -9,9 +21,13 @@ import { z } from 'zod'
 import { RevealText } from '../../components/RevealText'
 import { baseApi } from '../../configs/api'
 import { error as toastError, success } from '../../externals/toast/toast'
+import { PROJECT_TYPE_EVENT, whatsappUrl } from '../../lib/contact'
 import { ease } from '../../lib/motion'
 import { useLenis } from '../../providers/SmoothScroll'
 import styles from './styles.module.scss'
+
+const PROJECT_TYPES = ['Site', 'System', 'App', 'Ai', 'Unsure'] as const
+const GUARANTEES = [KeyRound, FileCheck, LifeBuoy]
 
 const CONFETTI_COLORS = ['#2f4fe0', '#8fa2ff', '#ffffff', '#1f9d6b', '#c9d2ff']
 
@@ -55,6 +71,19 @@ export function Contact() {
   const lenis = useLenis()
   const [isLoading, setIsLoading] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+  const [projectType, setProjectType] = useState<(typeof PROJECT_TYPES)[number] | null>(null)
+
+  // the services picker pre-selects the project type before scrolling here
+  useEffect(() => {
+    const onPick = (e: Event) => {
+      const type = (e as CustomEvent<string>).detail
+      if ((PROJECT_TYPES as readonly string[]).includes(type)) {
+        setProjectType(type as (typeof PROJECT_TYPES)[number])
+      }
+    }
+    window.addEventListener(PROJECT_TYPE_EVENT, onPick)
+    return () => window.removeEventListener(PROJECT_TYPE_EVENT, onPick)
+  }, [])
 
   const schema = useMemo(
     () =>
@@ -77,8 +106,13 @@ export function Contact() {
   const onSubmit = async (values: FormType) => {
     try {
       setIsLoading(true)
-      await baseApi.post('/contacts', values)
+      // The API only knows name/email/message, so the project type travels in the message.
+      const message = projectType
+        ? `[${t('projectTypePrefix')}: ${t(`projectType${projectType}`)}]\n\n${values.message}`
+        : values.message
+      await baseApi.post('/contacts', { ...values, message })
       reset()
+      setProjectType(null)
       success(t('emailSentedSuccess'))
       setShowSuccess(true)
       setTimeout(() => setShowSuccess(false), 3400)
@@ -106,7 +140,7 @@ export function Contact() {
     {
       label: 'WhatsApp',
       value: '(62) 99835-8542',
-      href: `https://wa.me/5562998358542?text=${encodeURIComponent(t('whatsappMessage'))}`,
+      href: whatsappUrl(t('whatsappMessage')),
       icon: MessageCircle,
     },
     {
@@ -170,6 +204,23 @@ export function Contact() {
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 1, ease, delay: 0.15 }}
         >
+          <fieldset className={styles.types}>
+            <legend>{t('projectType')}</legend>
+            <div>
+              {PROJECT_TYPES.map((type) => (
+                <button
+                  key={type}
+                  type="button"
+                  aria-pressed={projectType === type}
+                  className={projectType === type ? styles.typeActive : undefined}
+                  onClick={() => setProjectType(projectType === type ? null : type)}
+                >
+                  {t(`projectType${type}`)}
+                </button>
+              ))}
+            </div>
+          </fieldset>
+
           {fields.map((f) => (
             <div key={f.id} className={styles.field}>
               <label htmlFor={f.id}>{t(f.id)}</label>
@@ -238,6 +289,18 @@ export function Contact() {
             <AnimatePresence>{showSuccess && <Confetti />}</AnimatePresence>
           </div>
         </motion.form>
+
+        <ul className={styles.guarantees}>
+          {GUARANTEES.map((Icon, i) => (
+            <li key={i}>
+              <Icon size={20} strokeWidth={1.6} aria-hidden />
+              <div>
+                <strong>{t(`guarantee${i + 1}Title`)}</strong>
+                <span>{t(`guarantee${i + 1}Body`)}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
 
       <footer className={styles.footer}>

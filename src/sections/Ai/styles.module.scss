@@ -75,7 +75,7 @@
 
     svg {
       flex-shrink: 0;
-      color: $cobalt;
+      color: $cobaltText;
     }
   }
 }
@@ -130,8 +130,8 @@
   position: sticky;
   top: 110px;
   border-radius: $radiusXl;
-  background: $midnight;
-  color: $paper;
+  background: $panel;
+  color: $onDark;
   box-shadow: $shadowLg;
   overflow: hidden;
 }
@@ -186,7 +186,7 @@
 }
 
 .thought {
-  color: $paper;
+  color: $onDark;
 
   .status {
     background: rgba(31, 157, 107, 0.2);

@@ -1,6 +1,53 @@
 @import './variables';
 @import './colors';
 
+:root {
+  color-scheme: light;
+
+  --paper: #f4f6fb;
+  --paper-deep: #e9edf7;
+  --surface: #ffffff;
+  --surface-soft: rgba(255, 255, 255, 0.6);
+  --ink: #0f1633;
+  --ink-soft: #2a3152;
+  --slate: #5a6385;
+  --haze: #d6dcee;
+  --border-strong: #bcc5e2;
+  --cobalt: #2f4fe0;
+  --cobalt-text: #2f4fe0;
+  --cobalt-deep: #2340c4;
+  --cobalt-tint: #e3e8fd;
+  --panel: #0b1230;
+  --header-bg: rgba(255, 255, 255, 0.72);
+  --hover: rgba(15, 22, 51, 0.05);
+  --net: 47, 79, 224; // particle network (rgb triplet)
+}
+
+// Follow the operating system's dark preference.
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --paper: #090d1e;
+    --paper-deep: #151b3a;
+    --surface: #10162f;
+    --surface-soft: rgba(255, 255, 255, 0.05);
+    --ink: #eef1fb;
+    --ink-soft: #c6cce8;
+    --slate: #8f98bf;
+    --haze: #222a50;
+    --border-strong: #37417a;
+    --cobalt: #3f5df0;
+    --cobalt-text: #a3b3ff;
+    --cobalt-deep: #c2ccff;
+    --cobalt-tint: #1a2350;
+    --panel: #121a3f;
+    --header-bg: rgba(16, 22, 47, 0.72);
+    --hover: rgba(255, 255, 255, 0.07);
+    --net: 143, 162, 255;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +56,7 @@
 
 *::selection {
   background: $cobalt;
-  color: $white;
+  color: $pureWhite;
 }
 
 html {

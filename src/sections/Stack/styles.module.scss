@@ -46,6 +46,11 @@
     stroke: currentColor;
   }
 
+  // brand colours are tuned for light backgrounds; in dark mode use the accent
+  @media (prefers-color-scheme: dark) {
+    --brand: var(--cobalt-text) !important;
+  }
+
   &:hover {
     color: $ink;
 

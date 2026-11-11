@@ -2,17 +2,16 @@
 @import '../../styles/_variables.scss';
 
 .services {
-  @include container;
   padding-top: clamp(5rem, 12vw, 9rem);
-  padding-bottom: clamp(4rem, 10vw, 7rem);
+  padding-bottom: clamp(3rem, 8vw, 5rem);
 }
 
 .header {
+  @include container;
   display: grid;
   grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
   gap: 2rem 4rem;
   align-items: end;
-  margin-bottom: 3.5rem;
 }
 
 .title {
@@ -31,103 +30,121 @@
   max-width: 32rem;
 }
 
-.list {
-  border-top: 1px solid $haze;
+// ---------------- Pinned (scroll-driven) ----------------
+
+// Tall track: the stage sticks while the visitor scrolls through the steps.
+.track {
+  position: relative;
 }
 
-.item {
-  position: relative;
-  isolation: isolate;
-  border-bottom: 1px solid $haze;
+.stage {
+  @include container;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 10.5rem minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-top: 5.5rem; // clears the fixed header
+  padding-bottom: 1.5rem;
+}
 
-  // tint sweeps in from the left on hover / when open
-  &::before {
-    content: '';
+.steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding-left: 1.1rem;
+
+  button {
+    padding: 0.4rem 0;
+    text-align: left;
+    font-size: 0.95rem;
+    color: $slate;
+    transition: color 0.4s $ease, transform 0.5s $ease;
+
+    &:hover {
+      color: $ink;
+    }
+
+    &.current {
+      color: $ink;
+      font-weight: 600;
+      transform: translateX(4px);
+    }
+  }
+}
+
+.rail {
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  bottom: 0.4rem;
+  width: 2px;
+  border-radius: 2px;
+  background: $haze;
+
+  span {
     position: absolute;
     inset: 0;
-    z-index: -1;
-    background: $white;
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.7s $ease;
-  }
-
-  &:hover::before,
-  &.open::before {
-    transform: scaleX(1);
-  }
-}
-
-.row {
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto minmax(0, 14rem) minmax(0, 1fr) auto;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 1.75rem 1.25rem;
-  text-align: left;
-}
-
-.icon {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid $haze;
-  color: $ink;
-  transition: background-color 0.5s $ease, color 0.5s $ease, border-color 0.5s $ease;
-
-  .open & {
+    border-radius: inherit;
     background: $cobalt;
-    border-color: $cobalt;
-    color: $white;
+    transform-origin: 50% 0;
   }
 }
 
-.name {
-  font-family: $displayFont;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  transition: transform 0.6s $ease, color 0.4s $ease;
+.counter {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $cobaltText;
+  font-variant-numeric: tabular-nums;
+}
 
-  .item:hover &,
-  .open & {
-    transform: translateX(6px);
+.content {
+  h3 {
+    font-family: $displayFont;
+    font-size: clamp(2.2rem, 4.6vw, 3.8rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1;
   }
 }
 
 .summary {
-  color: $slate;
+  margin-top: 0.9rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: $cobaltText;
 }
 
-.toggle {
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: $paperDeep;
-  color: $ink;
+.body {
+  margin-top: 0.7rem;
+  max-width: 34rem;
+  color: $inkSoft;
+  line-height: 1.7;
 }
 
-.panel {
-  overflow: hidden;
-}
+.deliverables {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.4rem;
 
-.panelInner {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.5rem 3rem;
-  align-items: start;
-  padding: 0 1.25rem 2rem calc(1.25rem + 44px + 1.5rem);
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    font-weight: 500;
+    line-height: 1.45;
 
-  p {
-    max-width: 40rem;
-    color: $inkSoft;
-    line-height: 1.75;
+    svg {
+      flex-shrink: 0;
+      margin-top: 3px;
+      color: $cobaltText;
+    }
   }
 }
 
@@ -135,47 +152,86 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
-  justify-content: flex-end;
+  margin-top: 1.25rem;
 
   li {
     padding: 0.3rem 0.75rem;
     border-radius: $radiusFull;
     background: $cobaltTint;
     color: $cobaltDeep;
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 500;
+  }
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  height: 50px;
+  margin-top: 1.6rem;
+  padding: 0 1.4rem;
+  border-radius: $radiusFull;
+  background: $ink;
+  color: $paper;
+  font-weight: 500;
+  transition: background-color 0.4s $ease, color 0.4s $ease, transform 0.35s $ease;
+
+  svg {
+    transition: transform 0.5s $ease;
+  }
+
+  &:hover {
+    background: $cobalt;
+    color: $pureWhite;
+
+    svg {
+      transform: translateX(4px);
+    }
+  }
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.visualSlot {
+  min-width: 0;
+}
+
+// shorter laptops: tighten so everything fits in one screen
+@media (max-height: 780px) {
+  .body {
+    font-size: 0.95rem;
+  }
+
+  .deliverables {
+    margin-top: 1rem;
+  }
+
+  .content h3 {
+    font-size: clamp(2rem, 4vw, 3rem);
+  }
+}
+
+// ---------------- Stacked (small screens) ----------------
+
+.stack {
+  @include container;
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+  margin-top: 2.5rem;
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 900px) {
   .header {
     grid-template-columns: 1fr;
-  }
-
-  .row {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    padding: 1.4rem 0.5rem;
-    gap: 1rem;
-  }
-
-  .summary {
-    grid-column: 2 / 3;
-    grid-row: 2;
-    font-size: 0.92rem;
-  }
-
-  .toggle {
-    grid-row: 1;
-    grid-column: 3;
-  }
-
-  .panelInner {
-    grid-template-columns: 1fr;
-    // align with the title column (row padding + icon + gap)
-    padding: 0 0.5rem 1.75rem calc(0.5rem + 44px + 1rem);
-  }
-
-  .tags {
-    justify-content: flex-start;
   }
 }

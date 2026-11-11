@@ -1,0 +1,99 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+.wrap {
+  @include container;
+  padding-bottom: clamp(4rem, 10vw, 7rem);
+}
+
+.band {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem 3rem;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  border-radius: $radiusXl;
+  background: $cobalt;
+  color: $pureWhite;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    right: -120px;
+    top: -220px;
+    background: radial-gradient(closest-side, rgba(255, 255, 255, 0.22), transparent);
+    pointer-events: none;
+  }
+
+  > div {
+    position: relative;
+  }
+
+  p {
+    margin-top: 0.75rem;
+    max-width: 32rem;
+    color: rgba(255, 255, 255, 0.82);
+    line-height: 1.65;
+  }
+}
+
+.title {
+  font-family: $displayFont;
+  font-weight: 500;
+  font-size: clamp(1.7rem, 3.4vw, 2.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  max-width: 20ch;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: 52px;
+  padding: 0 1.5rem;
+  border-radius: $radiusFull;
+  font-weight: 500;
+  transition: background-color 0.35s $ease, color 0.35s $ease, border-color 0.35s $ease,
+    transform 0.35s $ease;
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &:focus-visible {
+    outline-color: $pureWhite;
+  }
+}
+
+.primary {
+  background: $pureWhite;
+  color: $inkFixed;
+
+  &:hover {
+    background: $inkFixed;
+    color: $pureWhite;
+  }
+}
+
+.secondary {
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: $pureWhite;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: $pureWhite;
+  }
+}

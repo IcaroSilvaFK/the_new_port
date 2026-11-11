@@ -33,8 +33,8 @@
 
 .scrolled .inner {
   max-width: 880px;
-  background: rgba(255, 255, 255, 0.72);
-  border-color: rgba(214, 220, 238, 0.9);
+  background: var(--header-bg);
+  border-color: $haze;
   box-shadow: $shadowMd;
   backdrop-filter: blur(14px) saturate(160%);
   -webkit-backdrop-filter: blur(14px) saturate(160%);
@@ -53,21 +53,22 @@
 }
 
 .mark {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: $ink;
-  color: $paper;
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  transition: background-color 0.4s $ease, transform 0.6s $ease;
+  flex-shrink: 0;
+  color: $cobaltText;
+  overflow: visible;
 
-  .logo:hover & {
-    background: $cobalt;
-    transform: rotate(-12deg);
+  // the wing opens a little when you hover the logo
+  path {
+    transform-origin: 10px 33px;
+    transition: transform 0.6s $ease;
+  }
+
+  .logo:hover & [data-feather='1'] {
+    transform: rotate(-7deg);
+  }
+
+  .logo:hover & [data-feather='3'] {
+    transform: rotate(7deg);
   }
 }
 
@@ -85,7 +86,7 @@
 
     &:hover {
       color: $ink;
-      background: rgba(15, 22, 51, 0.05);
+      background: var(--hover);
     }
   }
 }
@@ -109,7 +110,7 @@
   transition: background-color 0.3s $ease, color 0.3s $ease;
 
   &:hover {
-    background: rgba(15, 22, 51, 0.06);
+    background: var(--hover);
     color: $ink;
   }
 }
@@ -129,6 +130,7 @@
 
   &:hover {
     background: $cobalt;
+    color: $pureWhite;
   }
 
   &:active {

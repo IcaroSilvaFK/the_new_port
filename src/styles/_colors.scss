@@ -1,21 +1,29 @@
 // ============================================================
 // Brand: Icaro Vieira — "Cobalt & Porcelain"
-// Cool porcelain paper, deep ink type, one cobalt accent
-// (taken from the portrait), midnight for the closing section.
+// Colours are CSS custom properties (defined in global.scss) so the
+// page follows the operating system's light / dark preference.
 // ============================================================
 
-$paper: #f4f6fb;
-$paperDeep: #e9edf7;
-$ink: #0f1633;
-$inkSoft: #2a3152;
-$slate: #5a6385;
-$haze: #d6dcee;
-$cobalt: #2f4fe0;
-$cobaltDeep: #2340c4;
-$cobaltTint: #e3e8fd;
+// ---- Theme-aware (flip between light and dark) ----
+$paper: var(--paper); // page background
+$paperDeep: var(--paper-deep);
+$white: var(--surface); // raised surfaces: cards, dialogs, panels
+$ink: var(--ink); // main text
+$inkSoft: var(--ink-soft);
+$slate: var(--slate); // muted text
+$haze: var(--haze); // borders
+$cobalt: var(--cobalt); // accent used as a fill
+$cobaltText: var(--cobalt-text); // accent used as text / icon colour
+$cobaltDeep: var(--cobalt-deep);
+$cobaltTint: var(--cobalt-tint);
+$panel: var(--panel); // always-dark blocks (contact, agent demo)
+
+// ---- Fixed (same in both themes) ----
+$pureWhite: #ffffff; // text on accent fills
+$onDark: #f4f6fb; // text on always-dark blocks
+$inkFixed: #0f1633;
 $midnight: #0b1230;
 $midnightSoft: #18214a;
-$white: #ffffff;
 $success: #1f9d6b;
 
 // ---- Legacy aliases (kept so older components still compile) ----
@@ -23,7 +31,7 @@ $primary: $cobalt;
 $primaryHover: $cobaltDeep;
 $primaryDeep: $midnight;
 $primaryLight: $cobaltTint;
-$primaryForeground: $white;
+$primaryForeground: $pureWhite;
 
 $background: $paper;
 $backgroundSoft: $paper;
@@ -35,10 +43,10 @@ $secondaryForeground: $inkSoft;
 
 $accent: $cobalt;
 $accentSoft: $cobaltTint;
-$accentForeground: $white;
+$accentForeground: $pureWhite;
 
 $destructive: #d64545;
-$destructiveForeground: $white;
+$destructiveForeground: $pureWhite;
 
 $muted: $paperDeep;
 $mutedSurface: $haze;
@@ -52,7 +60,7 @@ $popover: $white;
 $popoverForeground: $ink;
 
 $border: $haze;
-$borderStrong: #bcc5e2;
+$borderStrong: var(--border-strong);
 $input: $haze;
 $ring: $cobalt;
 

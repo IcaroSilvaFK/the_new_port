@@ -3,8 +3,8 @@
 
 .contact {
   position: relative;
-  background: $midnight;
-  color: $paper;
+  background: $panel;
+  color: $onDark;
   border-radius: 40px 40px 0 0;
   overflow: hidden;
 
@@ -74,7 +74,7 @@
     align-items: center;
     gap: 0.9rem;
     padding: 0.85rem 0.25rem;
-    color: $paper;
+    color: $onDark;
     transition: padding 0.5s $ease, background-color 0.5s $ease;
 
     &:hover {
@@ -117,7 +117,7 @@
   transition: transform 0.5s $ease, color 0.4s $ease;
 
   a:hover & {
-    color: $paper;
+    color: $onDark;
     transform: translate(2px, -2px);
   }
 }
@@ -138,6 +138,79 @@
   gap: 1.75rem;
 }
 
+.types {
+  border: 0;
+
+  legend {
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: rgba(244, 246, 251, 0.75);
+  }
+
+  > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  button {
+    height: 40px;
+    padding: 0 1rem;
+    border-radius: $radiusFull;
+    border: 1px solid rgba(244, 246, 251, 0.22);
+    color: rgba(244, 246, 251, 0.85);
+    font-size: 0.92rem;
+    transition: background-color 0.35s $ease, border-color 0.35s $ease, color 0.35s $ease;
+
+    &:hover {
+      border-color: rgba(244, 246, 251, 0.55);
+    }
+
+    &:focus-visible {
+      outline-color: #8fa2ff;
+    }
+  }
+
+  .typeActive {
+    background: $onDark;
+    border-color: $onDark;
+    color: $inkFixed;
+  }
+}
+
+.guarantees {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem 2.5rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid rgba(244, 246, 251, 0.1);
+
+  li {
+    display: flex;
+    gap: 0.9rem;
+
+    svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #8fa2ff;
+    }
+  }
+
+  strong {
+    display: block;
+    font-weight: 600;
+  }
+
+  span {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: rgba(244, 246, 251, 0.6);
+  }
+}
+
 .field {
   display: flex;
   flex-direction: column;
@@ -154,7 +227,7 @@
     padding: 0.85rem 0;
     background: transparent;
     border-bottom: 1px solid rgba(244, 246, 251, 0.22);
-    color: $paper;
+    color: $onDark;
     font-size: 1.05rem;
     border-radius: 0;
     resize: vertical;
@@ -198,8 +271,8 @@
   height: 56px;
   padding: 0 1.75rem;
   border-radius: $radiusFull;
-  background: $paper;
-  color: $ink;
+  background: $onDark;
+  color: $inkFixed;
   font-weight: 600;
   overflow: hidden;
   transition: background-color 0.45s $ease, color 0.45s $ease, transform 0.35s $ease;
@@ -212,7 +285,7 @@
 
   &:hover:not(:disabled) {
     background: $cobalt;
-    color: $white;
+    color: $pureWhite;
   }
 
   &:active:not(:disabled) {
@@ -225,7 +298,7 @@
 
   &.done {
     background: $success;
-    color: $white;
+    color: $pureWhite;
     opacity: 1;
   }
 
@@ -274,7 +347,7 @@
   }
 
   &:hover {
-    color: $paper;
+    color: $onDark;
 
     svg {
       transform: translateY(-3px);
@@ -288,6 +361,10 @@
   }
 
   .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .guarantees {
     grid-template-columns: 1fr;
   }
 }

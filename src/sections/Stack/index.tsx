@@ -117,7 +117,7 @@ export function Stack() {
     <section className={styles.stack} aria-label={t('stackLabel')}>
       <p className={styles.label}>{t('stackLabel')}</p>
       <div className={styles.rows}>
-        <Marquee speed={34} gradient gradientColor="#f4f6fb" gradientWidth={96} pauseOnHover autoFill>
+        <Marquee speed={34} gradient gradientColor="var(--paper)" gradientWidth={96} pauseOnHover autoFill>
           {front.map((tool) => (
             <ToolItem key={tool.name} {...tool} />
           ))}
@@ -126,7 +126,7 @@ export function Stack() {
           speed={30}
           direction="right"
           gradient
-          gradientColor="#f4f6fb"
+          gradientColor="var(--paper)"
           gradientWidth={96}
           pauseOnHover
           autoFill

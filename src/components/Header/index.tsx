@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 import { useTranslatorContext } from '../../hooks/useTranslatorContext'
 import { ease } from '../../lib/motion'
+import { Logo } from '../Logo'
 import styles from './styles.module.scss'
 
 export function Header() {
@@ -28,9 +29,7 @@ export function Header() {
     >
       <div className={styles.inner}>
         <a href="#top" className={styles.logo}>
-          <span className={styles.mark} aria-hidden>
-            IV
-          </span>
+          <Logo className={styles.mark} />
           <span>Icaro Vieira</span>
         </a>
 

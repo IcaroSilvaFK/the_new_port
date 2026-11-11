@@ -1,7 +1,9 @@
 import { Backdrop } from './components/Backdrop'
+import { FloatingWhatsApp } from './components/FloatingWhatsApp'
 import { Header } from './components/Header'
 import { Ai } from './sections/Ai'
 import { Approach } from './sections/Approach'
+import { CallToAction } from './sections/CallToAction'
 import { Certifications } from './sections/Certifications'
 import { Contact } from './sections/Contact'
 import { Faq } from './sections/Faq'
@@ -21,11 +23,13 @@ export function App() {
         <Services />
         <Ai />
         <Work />
+        <CallToAction />
         <Approach />
         <Certifications />
         <Faq />
         <Contact />
       </main>
+      <FloatingWhatsApp />
     </>
   )
 }

@@ -98,6 +98,7 @@
 
     &:hover {
       background: $cobalt;
+      color: $pureWhite;
     }
 
     &:active {
@@ -119,7 +120,7 @@
 
   .active & {
     background: $white;
-    color: $cobalt;
+    color: $cobaltText;
   }
 }
 
@@ -131,5 +132,5 @@
   height: 26px;
   border-radius: 50%;
   background: $cobalt;
-  color: $white;
+  color: $pureWhite;
 }

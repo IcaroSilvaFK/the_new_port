@@ -6,7 +6,6 @@ type Particle = { x: number; y: number; vx: number; vy: number; r: number }
 
 const LINK_DIST = 140 // px between particles to draw a link
 const CURSOR_DIST = 190 // px from the cursor to draw a link
-const DOT = '47, 79, 224' // cobalt
 
 /**
  * Fixed, decorative page background: slowly drifting colour fields plus a
@@ -27,6 +26,15 @@ export function Backdrop() {
     let height = 0
     let particles: Particle[] = []
     let frame = 0
+    // particle colour comes from the theme, so it follows light / dark
+    const readDot = () =>
+      getComputedStyle(document.documentElement).getPropertyValue('--net').trim() || '47, 79, 224'
+    let DOT = readDot()
+    const scheme = window.matchMedia('(prefers-color-scheme: dark)')
+    const onScheme = () => {
+      DOT = readDot()
+      if (reduce) draw()
+    }
     const pointer = { x: -9999, y: -9999, active: false }
 
     const resize = () => {
@@ -135,6 +143,7 @@ export function Backdrop() {
     draw()
 
     window.addEventListener('resize', resize)
+    scheme.addEventListener('change', onScheme)
     if (finePointer && !reduce) {
       window.addEventListener('pointermove', onMove, { passive: true })
       document.addEventListener('pointerleave', onLeave)
@@ -143,6 +152,7 @@ export function Backdrop() {
     return () => {
       cancelAnimationFrame(frame)
       window.removeEventListener('resize', resize)
+      scheme.removeEventListener('change', onScheme)
       window.removeEventListener('pointermove', onMove)
       document.removeEventListener('pointerleave', onLeave)
     }

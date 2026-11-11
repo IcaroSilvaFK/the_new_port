@@ -25,7 +25,7 @@
   padding: 0.4rem 0.85rem 0.4rem 0.7rem;
   border: 1px solid $haze;
   border-radius: $radiusFull;
-  background: rgba(255, 255, 255, 0.6);
+  background: var(--surface-soft);
   font-size: 0.85rem;
   color: $inkSoft;
 }
@@ -122,6 +122,10 @@
     border-radius: inherit;
     transform: translateY(101%);
     transition: transform 0.55s $ease;
+  }
+
+  &:hover {
+    color: $pureWhite;
   }
 
   &:hover::before {

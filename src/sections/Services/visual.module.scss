@@ -1,0 +1,495 @@
+@import '../../styles/_colors.scss';
+@import '../../styles/_variables.scss';
+
+// Illustrations are drawn with theme tokens so they follow light / dark.
+.visual {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 4 / 3.3;
+  padding: clamp(1.25rem, 3vw, 2.25rem);
+  border-radius: $radiusXl;
+  border: 1px solid $haze;
+  background: $white;
+  box-shadow: $shadowLg;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    aspect-ratio: 1;
+    right: -25%;
+    top: -35%;
+    background: radial-gradient(closest-side, rgba(63, 93, 240, 0.22), transparent);
+    pointer-events: none;
+  }
+
+  > * {
+    position: relative;
+  }
+}
+
+.bar {
+  display: block;
+  height: 9px;
+  border-radius: 9px;
+  background: $haze;
+
+  &.strong {
+    background: var(--border-strong);
+  }
+
+  &.accent {
+    background: $cobalt;
+  }
+}
+
+// ---------- AI: chat with tool calls ----------
+.chat {
+  width: 100%;
+  max-width: 24rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.bubble {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.9rem 1rem;
+  border-radius: 16px;
+  animation: rise 0.6s $ease both;
+
+  &.user {
+    align-self: flex-end;
+    width: 62%;
+    background: $paperDeep;
+    border-bottom-right-radius: 4px;
+  }
+
+  &.bot {
+    width: 88%;
+    background: $cobaltTint;
+    border-bottom-left-radius: 4px;
+    animation-delay: 1.2s;
+  }
+}
+
+.toolCall {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: $radiusFull;
+  border: 1px solid $haze;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 0.75rem;
+  color: $cobaltText;
+  animation: rise 0.6s $ease both;
+  animation-delay: 0.4s;
+
+  & + & {
+    animation-delay: 0.8s;
+  }
+
+  i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: $success;
+  }
+}
+
+.sources {
+  display: flex;
+  gap: 0.35rem;
+  margin-top: 0.2rem;
+
+  span {
+    width: 34px;
+    height: 16px;
+    border-radius: 8px;
+    background: $cobalt;
+    opacity: 0.55;
+  }
+}
+
+// ---------- Web: browser ----------
+.browser {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid $haze;
+  background: $paper;
+  overflow: hidden;
+  animation: rise 0.7s $ease both;
+}
+
+.chrome {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.6rem 0.8rem;
+  border-bottom: 1px solid $haze;
+
+  i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+}
+
+.url {
+  flex: 1;
+  height: 16px;
+  margin-left: 0.6rem;
+  border-radius: 8px;
+  background: $paperDeep;
+}
+
+.page {
+  padding: 1.2rem;
+}
+
+.pageHero {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+
+  .bar:nth-child(-n + 2) {
+    height: 14px;
+  }
+}
+
+.pageBtn {
+  width: 96px;
+  height: 28px;
+  margin-top: 0.4rem;
+  border-radius: 14px;
+  background: $cobalt;
+  animation: glow 2.6s ease-in-out infinite;
+}
+
+.pageCards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-top: 1.2rem;
+
+  span {
+    height: 62px;
+    border-radius: 10px;
+    background: $paperDeep;
+    animation: rise 0.6s $ease both;
+
+    &:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    &:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+  }
+}
+
+// ---------- Systems: dashboard ----------
+.dash {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 26% 1fr;
+  border-radius: 14px;
+  border: 1px solid $haze;
+  background: $paper;
+  overflow: hidden;
+  animation: rise 0.7s $ease both;
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding: 1rem 0.8rem;
+    border-right: 1px solid $haze;
+  }
+}
+
+.dot {
+  width: 22px;
+  height: 22px;
+  margin-bottom: 0.4rem;
+  border-radius: 7px;
+  background: $cobalt;
+}
+
+.dashMain {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  padding: 1rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+
+  span {
+    height: 38px;
+    border-radius: 9px;
+    background: $paperDeep;
+  }
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 6%;
+  height: 84px;
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: 1px solid $haze;
+
+  span {
+    flex: 1;
+    border-radius: 4px 4px 0 0;
+    background: $cobalt;
+    transform-origin: bottom;
+    animation: grow 0.9s $ease both;
+  }
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+// ---------- Mobile: phone ----------
+.phoneWrap {
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.phone {
+  position: relative;
+  height: 100%;
+  max-height: 22rem;
+  aspect-ratio: 9 / 18;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.6rem 0.9rem 0.9rem;
+  border-radius: 28px;
+  border: 5px solid $ink;
+  background: $paper;
+  animation: rise 0.7s $ease both;
+}
+
+.notch {
+  position: absolute;
+  top: 7px;
+  left: 50%;
+  width: 34%;
+  height: 9px;
+  border-radius: 9px;
+  background: $ink;
+  transform: translateX(-50%);
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 12px;
+  background: $white;
+  border: 1px solid $haze;
+  color: $cobaltText;
+  box-shadow: $shadowMd;
+  animation: drop 3.6s $ease infinite;
+}
+
+.appHero {
+  height: 26%;
+  border-radius: 12px;
+  background: $cobaltTint;
+}
+
+.appList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem;
+  margin-top: auto;
+
+  span {
+    height: 38px;
+    border-radius: 9px;
+    background: $paperDeep;
+  }
+}
+
+.appBtn {
+  height: 30px;
+  border-radius: 15px;
+  background: $cobalt;
+}
+
+// ---------- SEO: search results ----------
+.serp {
+  width: 100%;
+  max-width: 25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1rem;
+  border-radius: $radiusFull;
+  border: 1px solid var(--border-strong);
+  color: $slate;
+}
+
+.result {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  animation: rise 0.6s $ease both;
+  animation-delay: 0.5s;
+
+  & + & {
+    animation-delay: 0.65s;
+  }
+
+  &.first {
+    background: $cobaltTint;
+    border: 1px solid $cobalt;
+    animation-delay: 0.25s;
+
+    .bar:not(.accent) {
+      background: var(--border-strong);
+    }
+  }
+}
+
+.badge {
+  position: absolute;
+  top: -8px;
+  right: 12px;
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: $cobalt;
+  color: $pureWhite;
+}
+
+// ---------- Automation: flow ----------
+.flow {
+  width: 100%;
+  max-width: 26rem;
+}
+
+.wire {
+  stroke: var(--border-strong);
+  stroke-width: 2;
+  stroke-dasharray: 4 6;
+}
+
+.pulse {
+  stroke: var(--cobalt-text);
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 26 600;
+  animation: travel 2.8s linear infinite;
+
+  &.late {
+    animation-delay: 1.4s;
+  }
+}
+
+.node rect:first-child {
+  fill: var(--paper);
+  stroke: var(--border-strong);
+  stroke-width: 1.5;
+}
+
+.hub rect:first-child {
+  fill: var(--cobalt);
+}
+
+.nodeBar {
+  fill: var(--border-strong);
+
+  .hub & {
+    fill: rgba(255, 255, 255, 0.8);
+  }
+}
+
+// ---------- shared motion ----------
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes grow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(63, 93, 240, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(63, 93, 240, 0);
+  }
+}
+
+@keyframes drop {
+  0%,
+  12% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+  22%,
+  80% {
+    opacity: 1;
+    transform: none;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes travel {
+  from {
+    stroke-dashoffset: 26;
+  }
+  to {
+    stroke-dashoffset: -420;
+  }
+}

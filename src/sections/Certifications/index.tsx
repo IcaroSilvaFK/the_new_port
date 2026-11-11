@@ -3,19 +3,13 @@ import { useTranslation } from 'react-i18next'
 import { certifications } from '../../data/certifications'
 import styles from './styles.module.scss'
 
+// One flat list, most recent first, so the columns balance themselves.
+const items = certifications
+  .flatMap((group) => group.items.map((item) => ({ ...item, issuer: group.issuer })))
+  .sort((a, b) => b.issued.localeCompare(a.issued))
+
 export function Certifications() {
-  const {
-    t,
-    i18n: { language },
-  } = useTranslation()
-  const fmt = new Intl.DateTimeFormat(language?.startsWith('en') ? 'en-US' : 'pt-BR', {
-    month: 'short',
-    year: 'numeric',
-  })
-  const formatDate = (ym: string) => {
-    const [y, m] = ym.split('-').map(Number)
-    return fmt.format(new Date(y, m - 1, 1)).replace('.', '').replace(' de ', ' ')
-  }
+  const { t } = useTranslation()
 
   return (
     <section className={styles.certs} aria-labelledby="certs-title">
@@ -24,21 +18,16 @@ export function Certifications() {
         <p>{t('certsIntro')}</p>
       </div>
 
-      <div className={styles.groups}>
-        {certifications.map((group) => (
-          <div key={group.issuer} className={styles.group}>
-            <h3>{group.issuer}</h3>
-            <ul>
-              {group.items.map((c) => (
-                <li key={c.name}>
-                  <span>{c.name}</span>
-                  <time dateTime={c.issued}>{formatDate(c.issued)}</time>
-                </li>
-              ))}
-            </ul>
-          </div>
+      <ul className={styles.list}>
+        {items.map((c) => (
+          <li key={c.name}>
+            <span>{c.name}</span>
+            <small>
+              {c.issuer}, {c.issued.slice(0, 4)}
+            </small>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
   )
 }
